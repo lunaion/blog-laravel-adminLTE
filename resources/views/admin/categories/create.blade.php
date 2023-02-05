@@ -14,7 +14,7 @@
 
                 <div class="form-group">
                     {!! Form::label('name', 'Nombre') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Digite el nombre de la categoría']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Digite el nombre de la categoría...']) !!}
 
                     @error('name')
                         <span class="text-danger">{{$message}}</span>
@@ -24,7 +24,7 @@
 
                 <div class="form-group">
                     {!! Form::label('slug', 'Slug') !!}
-                    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Digite el slug de la categoría', 'readonly']) !!}
+                    {!! Form::text('slug', null, ['class' => 'form-control', 'placeholder' => 'Digite el slug de la categoría...', 'readonly']) !!}
 
                     @error('slug')
                         <span class="text-danger">{{$message}}</span>

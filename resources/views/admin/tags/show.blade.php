@@ -3,7 +3,7 @@
 @section('title', 'Blog-Laravel-AdminLTE')
 
 @section('content_header')
-    <h1>Mostrar detalle de categoría</h1>
+    <h1>Mostrar detalle de la etiqueta</h1>
 @stop
 
 @section('content')
