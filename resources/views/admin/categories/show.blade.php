@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Blog-Laravel-AdminLTE')
+@section('title', 'HelpDesk')
 
 @section('content_header')
     <h1>Mostrar detalle de categoría</h1>

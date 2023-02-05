@@ -3,11 +3,11 @@
 @section('title', 'HelpDesk')
 
 @section('content_header')
-    <h1>Home</h1>
+    <h1>Crear nuevo post</h1>
 @stop
 
 @section('content')
-    <p>Bienvenid@s estás en la página principal.</p>
+    <p>Desde aquí podrás crear un a nuevo post</p>
 @stop
 
 @section('css')

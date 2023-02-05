@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Blog-Laravel-AdminLTE')
+@section('title', 'HelpDesk')
 
 @section('content_header')
 
     <a class="btn btn-primary btn-sm float-right" href="{{route('admin.tags.create')}}">Nueva etiqueta</a>
 
-    <h1>Mostrar listado de etiquetas</h1>
+    <h1>Listado de etiquetas</h1>
 @stop
 
 @section('content')

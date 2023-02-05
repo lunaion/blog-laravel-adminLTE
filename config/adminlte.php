@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Blog-</b>LTE',
+    'logo' => '<b>HELP</b>DESK',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -329,7 +329,7 @@ return [
             'icon' => 'far fa-fw fa-bookmark',
             'active' => ['admin/tags*'],
         ],
-        [
+        /* [
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
@@ -366,22 +366,17 @@ return [
                     'url'  => '#',
                 ],
             ],
-        ],
-        ['header' => 'labels'],
+        ], */
+        ['header' => 'OPCIONES DE BLOG'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'       => 'Lista de posts',
+            'route'        => 'admin.posts.index',
+            'icon' => 'fas fa-fw fa-clipboard',
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'       => 'Crear nuevo post',
+            'route'        => 'admin.posts.create',
+            'icon' => 'fas fa-fw fa-file',
         ],
     ],
 
@@ -537,5 +532,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

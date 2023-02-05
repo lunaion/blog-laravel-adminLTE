@@ -3,11 +3,12 @@
 @section('title', 'HelpDesk')
 
 @section('content_header')
-    <h1>Home</h1>
+    <h1>Listado de posts</h1>
 @stop
 
 @section('content')
-    <p>Bienvenid@s estás en la página principal.</p>
+    <p>Desde aquí podrás ver el lista de posts.</p>
+    @livewire('admin.posts-index')
 @stop
 
 @section('css')
