@@ -31,12 +31,7 @@ class TagController extends Controller
 
         $colors = [
             'red' => 'Color rojo',
-            'yellow' => 'Color amarillo',
-            'green' => 'Color verde',
-            'blue' => 'Color azul',
             'indigo' => 'Color indigo',
-            'purple' => 'Color morado',
-            'pink' => 'Color rosado',
         ];
 
         return view('admin.tags.create', compact('colors'));
@@ -85,12 +80,7 @@ class TagController extends Controller
 
         $colors = [
             'red' => 'Color rojo',
-            'yellow' => 'Color amarillo',
-            'green' => 'Color verde',
-            'blue' => 'Color azul',
             'indigo' => 'Color indigo',
-            'purple' => 'Color morado',
-            'pink' => 'Color rosado',
         ];
 
         return view('admin.tags.edit', compact('tag', 'colors'));

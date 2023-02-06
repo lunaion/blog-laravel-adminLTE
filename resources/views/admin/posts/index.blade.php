@@ -11,6 +11,13 @@
 
 @section('content')
     <p>Desde aquí podrás ver el lista de posts.</p>
+
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
+    
     @livewire('admin.posts-index')
 @stop
 
