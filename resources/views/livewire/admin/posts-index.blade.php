@@ -12,7 +12,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th colspan="2">Acciones</th>
+                            <th colspan="2"></th>
                         </tr>
                     </thead>
 
