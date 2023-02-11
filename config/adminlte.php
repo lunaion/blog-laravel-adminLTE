@@ -323,6 +323,12 @@ return [
             'icon'        => 'fas fa-fw fa-users',
             'can'        => 'admin.users.index',
         ],
+        [
+            'text'        => 'Lista de roles',
+            'route'         => 'admin.roles.index',
+            'icon'        => 'fas fa-fw fa-users-cog',
+            // 'can'        => 'admin.users.index',
+        ],
         ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'Categorías',
