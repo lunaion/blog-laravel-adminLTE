@@ -14,6 +14,7 @@
                             <th>Id</th>
                             <th>Nombre</th>
                             <th>Email</th>
+                            <th>Rol</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -24,6 +25,11 @@
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
+                                <td>
+                                    @foreach ($user->roles as $role )
+                                        <span class="badge badge-primary">{{ $role->name }}</span>
+                                    @endforeach
+                                </td>
                                 <td width="10px">
                                     <a class="btn btn-warning btn-sm" href="{{route('admin.users.edit', $user)}}">Editar</a>
                                 </td>

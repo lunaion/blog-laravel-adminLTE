@@ -40,11 +40,6 @@ class RoleController extends Controller
                         ->with('info', 'El rol se creó con éxito');
     }
 
-    public function show(Role $role)
-    {
-        return view('admin.roles.show', compact('role'));
-    }
-
     public function edit(Role $role)
     {   
         $permissions = Permission::all();

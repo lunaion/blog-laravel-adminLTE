@@ -66,9 +66,9 @@
     <div class="col">
         <div class="image-wrapper">
             @isset ($post->image)
-                <img id="picture" class="w-42 h-40 object-cover object-center" src="{{ url('storage/' . $post->image->url) }}" alt="">
+                <img id="picture" class="w-42 h-40 object-cover object-center rounded" src="{{ url('storage/' . $post->image->url) }}" alt="">
             @else
-                <img id="picture" src="{{url('vendor/adminlte/dist/img/default-image.jpg')}}" alt="">
+                <img class="rounded" id="picture" src="{{url('vendor/adminlte/dist/img/default-image.jpg')}}" alt="">
             @endisset
         </div>
     </div>

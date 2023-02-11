@@ -14,9 +14,9 @@
 
                 <figure>
                     @if ($post->image)
-                        <img class="w-full h-72 object-cover object-center" src="{{ url('storage/' . $post->image->url) }}" alt="">
+                        <img class="w-full h-72 object-cover object-center rounded" src="{{ url('storage/' . $post->image->url) }}" alt="">
                     @else
-                        <img class="w-full h-72 object-cover object-center" src="{{url('vendor/adminlte/dist/img/default-image.jpg')}}" alt="">
+                        <img class="w-full h-72 object-cover object-center rounded" src="{{url('vendor/adminlte/dist/img/default-image.jpg')}}" alt="">
                     @endif
                 </figure>
 
@@ -37,9 +37,9 @@
                         <li class="mb-4">
                             <a class="flex" href="{{route('posts.show', $similar)}}">
                                 @if ($similar->image)
-                                    <img class="w-42 h-40 object-cover object-center" src="{{ url('storage/' . $similar->image->url) }}" alt="">
+                                    <img class="w-42 h-40 object-cover object-center rounded" src="{{ url('storage/' . $similar->image->url) }}" alt="">
                                 @else
-                                    <img class="w-full h-72 object-cover object-center" src="{{url('vendor/adminlte/dist/img/default-image.jpg')}}" alt="">
+                                    <img class="w-full h-72 object-cover object-center rounded" src="{{url('vendor/adminlte/dist/img/default-image.jpg')}}" alt="">
                                 @endif
                                <span class="ml-2 text-gray-600">{{$similar->name}}</span>
                             </a>

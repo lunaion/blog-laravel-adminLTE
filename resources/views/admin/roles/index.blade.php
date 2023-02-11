@@ -3,7 +3,9 @@
 @section('title', 'HelpDesk')
 
 @section('content_header')
-    <a class="btn btn-primary btn-sm float-right" href="{{route('admin.roles.create')}}">Agregar rol</a>
+    @can('admin.roles.create')
+        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.roles.create')}}">Agregar rol</a>
+    @endif
     <h1>Lista de roles</h1>
 @stop
 
@@ -33,15 +35,19 @@
                             <td>{{$role->id}}</td>
                             <td>{{$role->name}}</td>
                             <td width="10px">
-                                <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-sm btn-warning">Editar</a>
+                                @can('admin.roles.edit')
+                                    <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-sm btn-warning">Editar</a>
+                                @endif
                             </td>
                             <td width="10px">
-                                <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
+                                @can('admin.roles.destroy')
+                                    <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
 
-                                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
-                                </form>
+                                        <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
