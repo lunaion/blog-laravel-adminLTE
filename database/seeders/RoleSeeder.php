@@ -46,6 +46,24 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.categories.destroy', 
                             'description' => 'Eliminar categorías'])->syncRoles([$role1]);
 
+        Permission::create(['name' => 'admin.countries.index', 
+                            'description' => 'Ver listado de países'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.countries.create', 
+                            'description' => 'Crear países'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.countries.edit', 
+                            'description' => 'Editar países'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.countries.destroy', 
+                            'description' => 'Eliminar países'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'admin.cities.index', 
+                            'description' => 'Ver listado de ciudades'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.cities.create', 
+                            'description' => 'Crear ciudades'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.cities.edit', 
+                            'description' => 'Editar ciudades'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.cities.destroy', 
+                            'description' => 'Eliminar ciudades'])->syncRoles([$role1]);
+
         Permission::create(['name' => 'admin.tags.index', 
                             'description' => 'Ver listado de etiquetas'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'admin.tags.create', 

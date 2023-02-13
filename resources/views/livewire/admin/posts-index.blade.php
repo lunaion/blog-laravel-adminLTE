@@ -7,7 +7,7 @@
     @if ($posts->count())
 
         <div class="card-body">
-                <table class="table table-strped">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Id</th>

@@ -3,23 +3,17 @@
 @section('title', 'HelpDesk')
 
 @section('content_header')
-    <h1>Lista de categorías</h1>
-    @can('admin.categories.create')
-        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.categories.create')}}">Agregar categoría</a>
+    @can('admin.countries.create')
+        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.countries.create')}}">Agregar país</a>
     @endcan
+
+    <h1>Lista de países</h1>
 @stop
 
 @section('content')
-    <p>Desde aquí podrás ver la lista de categorías.</p>
-
-    @if (session('info'))
-        <div class="alert alert-success">
-            <strong>{{session('info')}}</strong>
-        </div>
-    @endif
+    <p>Desde aquí podrás ver la lista de países.</p>
 
     <div class="card">
-
         <div class="card-body">
             <table class="table table-striped">
                 <thead>
@@ -31,22 +25,22 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($countries as $country)
                         <tr>
-                            <td>{{$category->id}}</td>
-                            <td>{{$category->name}}</td>
+                            <td>{{$country->id}}</td>
+                            <td>{{$country->name}}</td>
                             <td width="10px">
-                                @can('admin.categories.edit')
-                                    <a class="btn btn-warning btn-sm" href="{{route('admin.categories.edit', $category)}}">Editar</a>
+                                @can('admin.countries.edit')
+                                    <a class="btn btn-warning btn-sm" href="{{route('admin.countries.edit', $country)}}">Editar</a>
                                 @endcan
                             </td>
                             <td width="10px">
-                                @can('admin.categories.destroy')
-                                    <form action="{{route('admin.categories.destroy', $category)}}" method="POST">
+                                @can('admin.countries.destroy')
+                                    <form action="{{route('admin.countries.destroy', $country)}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                    </form> 
+                                    </form>     
                                 @endcan
                             </td>
                         </tr>
@@ -56,3 +50,4 @@
         </div>
     </div>
 @stop
+

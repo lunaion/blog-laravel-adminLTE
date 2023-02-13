@@ -107,7 +107,7 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
             'path' => 'vendor/adminlte/dist/img/logo-admin.png',
             'alt' => 'AdminLTE Preloader Image',
@@ -317,33 +317,6 @@ return [
             'icon'        => 'fas fa-fw fa-tachometer-alt',
             'can'        => 'admin.home',
         ],
-        /* [
-            'text'        => 'Usuarios',
-            'route'         => 'admin.users.index',
-            'icon'        => 'fas fa-fw fa-users',
-            'can'        => 'admin.users.index',
-        ],
-        [
-            'text'        => 'Lista de roles',
-            'route'         => 'admin.roles.index',
-            'icon'        => 'fas fa-fw fa-users-cog',
-            // 'can'        => 'admin.users.index',
-        ], */
-        // ['header' => 'ADMINISTRADOR'],
-        /* [
-            'text' => 'Categorías',
-            'route'  => 'admin.categories.index',
-            'icon' => 'fab fa-fw fa-buffer',
-            'active' => ['admin/categories*'],
-            'can'        => 'admin.categories.index',
-        ],
-        [
-            'text' => 'Etiquetas',
-            'route'  => 'admin.tags.index',
-            'icon' => 'far fa-fw fa-bookmark',
-            'active' => ['admin/tags*'],
-            'can'        => 'admin.tags.index',
-        ], */
         [
             'text'    => 'Usuarios y roles',
             'icon'    => 'fas fa-fw fa-users-cog',
@@ -363,8 +336,35 @@ return [
             ],
         ],
         [
+            'text'    => 'Recursos generales',
+            'icon'    => 'fas fa-fw fa-cogs',
+            'submenu' => [
+                [
+                    'text' => 'Ciudades',
+                    'route'  => 'admin.cities.index',
+                    'icon' => 'fas fa-fw fa-city',
+                    'active' => ['admin/cities*'],
+                    'can'        => 'admin.cities.index',
+                ],
+                [
+                    'text' => 'Países',
+                    'route'  => 'admin.countries.index',
+                    'icon' => 'fas fa-fw fa-globe-americas',
+                    'active' => ['admin/countries*'],
+                    'can'        => 'admin.countries.index',
+                ],
+                [
+                    'text' => 'Etiquetas',
+                    /* 'route'  => 'admin.tags.index', */
+                    'icon' => 'far fa-fw fa-bookmark',
+                    /* 'active' => ['admin/tags*'],
+                    'can'        => 'admin.tags.index', */
+                ],
+            ],
+        ],
+        [
             'text'    => 'Gestión de posts',
-            'icon'    => 'fas fa-fw fa-passport',
+            'icon'    => 'fas fa-fw fa-keyboard',
             'submenu' => [
                 [
                     'text' => 'Categorías',
@@ -394,6 +394,7 @@ return [
                 ],
             ],
         ],
+    
        /*  ['header' => 'OPCIONES DE BLOG'],
         [
             'text'       => 'Lista de posts',
