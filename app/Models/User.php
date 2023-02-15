@@ -67,4 +67,9 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
+    // Relación uno a muchos inversa (User <- Headquarter)
+    public function headquarter(){
+        return $this->hasMany(Headquarter::class);
+    }
+
 }

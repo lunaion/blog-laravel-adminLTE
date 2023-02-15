@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\HeadquarterController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RoleController;
@@ -21,6 +22,8 @@ Route::resource('categories', CategoryController::class)->except('show')->names(
 Route::resource('countries', CountryController::class)->except('show')->names('admin.countries');
 
 Route::resource('cities', CityController::class)->except('show')->names('admin.cities');
+
+Route::resource('headquarters', HeadquarterController::class)->except('show')->names('admin.headquarters');
 
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 

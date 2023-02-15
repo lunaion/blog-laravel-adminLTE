@@ -354,11 +354,11 @@ return [
                     'can'        => 'admin.countries.index',
                 ],
                 [
-                    'text' => 'Etiquetas',
-                    /* 'route'  => 'admin.tags.index', */
-                    'icon' => 'far fa-fw fa-bookmark',
-                    /* 'active' => ['admin/tags*'],
-                    'can'        => 'admin.tags.index', */
+                    'text' => 'Sedes',
+                    'route'  => 'admin.headquarters.index',
+                    'icon' => 'fas fa-fw fa-store-alt',
+                    'active' => ['admin/headquarters*'],
+                    // 'can'        => 'admin.tags.index',
                 ],
             ],
         ],

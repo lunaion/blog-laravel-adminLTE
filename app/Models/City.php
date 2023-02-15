@@ -19,4 +19,11 @@ class City extends Model
     public function countries(){
         return $this->belongsToMany(Country::class);
     }
+
+    // Relación uno a muchos inversa (City <- Headquarter)
+    public function headquarter(){
+        return $this->hasMany(Headquarter::class);
+    }
+
+    
 }
