@@ -17,9 +17,9 @@
 
     <div class="card">
         <div class="card-body">
-            {!! Form::model($headquarters,['route' => ['admin.headquarters.update', $headquarters], 'autocomplete' => 'off', 'method' => 'put']) !!}
+            {!! Form::model($site,['route' => ['admin.sites.update', $site], 'autocomplete' => 'off', 'method' => 'put']) !!}
 
-                    @include('admin.headquarters.partials.form')
+                    @include('admin.sites.partials.form')
 
                 {!! Form::submit('Actualizar sede', ['class' => 'btn btn-primary btn-sm']) !!}
 

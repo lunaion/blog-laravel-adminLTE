@@ -355,10 +355,10 @@ return [
                 ],
                 [
                     'text' => 'Sedes',
-                    'route'  => 'admin.headquarters.index',
+                    'route'  => 'admin.sites.index',
                     'icon' => 'fas fa-fw fa-store-alt',
-                    'active' => ['admin/headquarters*'],
-                    // 'can'        => 'admin.tags.index',
+                    'active' => ['admin/sites*'],
+                    'can'        => 'admin.sites.index',
                 ],
             ],
         ],

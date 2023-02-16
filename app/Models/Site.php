@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Headquarter extends Model
+class Site extends Model
 {
     use HasFactory;
 
@@ -24,5 +24,4 @@ class Headquarter extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    
 }

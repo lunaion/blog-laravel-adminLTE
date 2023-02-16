@@ -4,6 +4,9 @@
 
 @section('content_header')
     <h1>Lista de usuarios</h1>
+    @can('admin.users.export')
+        <a class="btn btn-success btn-sm float-right" href="{{route('admin.users.export')}}">Exportar a Excel</a>
+    @endcan
 @stop
 
 @section('content')

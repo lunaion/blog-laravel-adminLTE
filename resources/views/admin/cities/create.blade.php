@@ -12,7 +12,7 @@
     <div class="card">
         <div class="card-body">
 
-            {!! Form::open(['route' => 'admin.cities.store']) !!}
+            {!! Form::open(['route' => 'admin.cities.store', 'autocomplete' => 'off']) !!}
 
                 @include('admin.cities.partials.form')
 

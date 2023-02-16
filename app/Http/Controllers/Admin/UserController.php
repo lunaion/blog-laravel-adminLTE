@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Maatwebsite\Excel\Facades\Excel;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -36,5 +37,9 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.edit', $user)
                             ->with('info', 'Se asignó los roles correctamente');
+    }
+
+    public function export(){
+        return Excel::download(new UsersExport, 'Lista de usuarios.xlsx');
     }
 }

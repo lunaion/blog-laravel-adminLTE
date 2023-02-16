@@ -64,6 +64,15 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.cities.destroy', 
                             'description' => 'Eliminar ciudades'])->syncRoles([$role1]);
 
+        Permission::create(['name' => 'admin.sites.index', 
+                            'description' => 'Ver listado de sedes'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.sites.create', 
+                            'description' => 'Crear sedes'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.sites.edit', 
+                            'description' => 'Editar sedes'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.sites.destroy', 
+                            'description' => 'Eliminar sedes'])->syncRoles([$role1]);
+
         Permission::create(['name' => 'admin.tags.index', 
                             'description' => 'Ver listado de etiquetas'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'admin.tags.create', 
@@ -82,5 +91,10 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.posts.destroy', 
                             'description' => 'Eliminar posts'])->syncRoles([$role1, $role2]);
 
+        // Exportar informes
+        Permission::create(['name' => 'admin.users.export', 
+                            'description' => 'Exportar Lista de usuarios'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.sites.export', 
+                            'description' => 'Exportar lista de sedes'])->syncRoles([$role1]);
     }
 }

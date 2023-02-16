@@ -12,9 +12,9 @@
     <div class="card">
         <div class="card-body">
 
-            {!! Form::open(['route' => 'admin.headquarters.store']) !!}
+            {!! Form::open(['route' => 'admin.sites.store', 'autocomplete' => 'off']) !!}
 
-                @include('admin.headquarters.partials.form')
+                @include('admin.sites.partials.form')
 
                 {!! Form::submit('Crear sede', ['class' => 'btn btn-primary btn-sm']) !!}
 
