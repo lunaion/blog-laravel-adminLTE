@@ -28,6 +28,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'document',
+        'username',
         'email',
         'password',
     ];
@@ -67,9 +69,9 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    // Relación uno a muchos inversa (User <- Headquarter)
+    // Relación uno a muchos inversa (User <- site)
     public function site(){
-        return $this->hasMany(Headquarter::class);
+        return $this->hasMany(Site::class);
     }
 
 }

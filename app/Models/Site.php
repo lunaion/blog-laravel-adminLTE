@@ -15,12 +15,12 @@ class Site extends Model
         return "slug";
     }
 
-    // Relación uno a muchos (Headquarter -> City)
+    // Relación uno a muchos (site -> City)
     public function city(){
         return $this->belongsTo(City::class);
     }
 
-    // Relación uno a muchos (Headquarter -> City)
+    // Relación uno a muchos (site -> user)
     public function user(){
         return $this->belongsTo(User::class);
     }

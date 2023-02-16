@@ -22,7 +22,7 @@ class City extends Model
 
     // Relación uno a muchos inversa (City <- Headquarter)
     public function site(){
-        return $this->hasMany(Headquarter::class);
+        return $this->hasMany(Site::class);
     }
 
     
