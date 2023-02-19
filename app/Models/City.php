@@ -25,5 +25,10 @@ class City extends Model
         return $this->hasMany(Site::class);
     }
 
+    // Relación uno a muchos (city -> turn)
+    public function turn(){
+        return $this->belongsTo(Turn::class);
+    }
+
     
 }

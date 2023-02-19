@@ -48,6 +48,10 @@
             </table>
         </div>
         
+        <div class="card-footer">
+            {{$cities->links()}}
+        </div>
+
     @else
 
         <div class="card-body">

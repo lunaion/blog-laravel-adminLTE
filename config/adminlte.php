@@ -318,6 +318,12 @@ return [
             'can'        => 'admin.home',
         ],
         [
+            'text'        => 'Marcar turno',
+            'route'         => 'admin.turns.index',
+            'icon'        => 'fas fa-fw fa-user-clock',
+            /* 'can'        => 'admin.home', */
+        ],
+        [
             'text'    => 'Usuarios y roles',
             'icon'    => 'fas fa-fw fa-users-cog',
             'submenu' => [

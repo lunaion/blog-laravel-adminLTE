@@ -74,4 +74,9 @@ class User extends Authenticatable
         return $this->hasMany(Site::class);
     }
 
+    // Relación uno a muchos (User -> turn)
+    public function turn(){
+        return $this->belongsTo(Turn::class);
+    }
+
 }

@@ -24,4 +24,9 @@ class Site extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    // Relación uno a muchos (site -> turn)
+    public function turn(){
+        return $this->belongsTo(Turn::class);
+    }
 }
