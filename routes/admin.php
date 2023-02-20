@@ -35,3 +35,4 @@ Route::resource('posts', PostController::class)->except('show')->names('admin.po
 // Exportación de información
 Route::get('/sites/export', [SiteController::class, 'export'])->name('admin.sites.export');
 Route::get('/users/export', [UserController::class, 'export'])->name('admin.users.export');
+Route::get('/turns/export', [TurnController::class, 'export'])->name('admin.turns.export');

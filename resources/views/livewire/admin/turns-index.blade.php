@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-header">
-        <input wire:model="search" class="form-control" placeholder="Digite el nombre del usuario">
+        <input wire:model="search" class="form-control" placeholder="Puedes buscar por nombre de usuario, documento, usuario de red o por sede">
     </div>
 
     @if ($turns->count())
@@ -17,7 +17,9 @@
                         <th>Ciudad</th>
                         <th>Sede</th>
                         <th>IP</th>
-                        <th>Fecha y hora de ingreso</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Fecha y hora del sistema</th>
                     </tr>
                 </thead>
 
@@ -30,6 +32,8 @@
                             <td>{{$turn->city->name}}</td>
                             <td>{{$turn->site->name}}</td>
                             <td>{{$turn->local_ip}}</td>
+                            <td>{{$turn->date}}</td>
+                            <td>{{$turn->time}}</td>
                             <td>{{$turn->created_at}}</td>
                         </tr>                     
                     @endforeach

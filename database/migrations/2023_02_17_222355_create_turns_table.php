@@ -25,6 +25,8 @@ return new class extends Migration
             $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
 
             $table->string('local_ip')->nullable();
+            $table->string('date');
+            $table->string('time');
 
             $table->timestamps();
         });

@@ -23,8 +23,11 @@ class CitiesIndex extends Component
     public function render()
     {
 
-        $cities = City::where('name', 'LIKE', '%' . $this->search .'%')->paginate();
-
+        $cities = City::where('name', 'LIKE', '%' . $this->search .'%')
+                        ->orWhereHas('countries', function($q) {
+                            $q->where('name', 'LIKE', '%' . $this->search .'%');
+                        })->paginate();
+                        
         return view('livewire.admin.cities-index', compact('cities'));
     }
 }

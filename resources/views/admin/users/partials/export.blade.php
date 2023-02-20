@@ -1,3 +1,6 @@
+
+<h1>Lista de usuarios y su rol</h1>
+
 <table class="table table-striped">
     <thead>
         <tr>

@@ -1,3 +1,6 @@
+
+<h1>Lista de ciudades</h1>
+
 <table class="table table-striped">
     <thead>
         <tr>

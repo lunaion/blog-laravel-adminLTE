@@ -19,8 +19,14 @@ class TurnsIndex extends Component
     public function render()
     {   
 
-        $turns = Turn::where('user_id', 'LIKE', '%' . $this->search .'%')->paginate(10);
-
+        $turns = Turn::orWhereHas('user', function($q) {
+                            $q->where('name', 'LIKE', '%' . $this->search .'%')
+                                ->orWhere('document', 'LIKE', '%' . $this->search .'%')
+                                ->orWhere('username', 'LIKE', '%' . $this->search .'%');
+                        })->orWhereHas('site', function($q) {
+                            $q->where('name', 'LIKE', '%' . $this->search .'%');
+                        })->paginate(10);
+        
         return view('livewire.admin.turns-index', compact('turns'));
 
     }

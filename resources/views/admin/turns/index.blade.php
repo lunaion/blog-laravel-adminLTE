@@ -5,8 +5,12 @@
 @section('content_header')
     <h1>Registro y marcación de turnos</h1>
     <br>
-    <a class="btn btn-primary btn-sm" href="{{route('admin.turns.create')}}">Marcar turno</a>
-    <a class="btn btn-success btn-sm float-right" href="">Exportar a Excel</a>
+    @can('admin.turns.create')
+        <a class="btn btn-primary btn-sm" href="{{route('admin.turns.create')}}">Marcar turno</a>
+    @endcan
+    @can('admin.turns.export')
+        <a class="btn btn-success btn-sm float-right" href="{{route('admin.turns.export')}}">Exportar a Excel</a>
+    @endcan
 @stop
 
 @section('content')
