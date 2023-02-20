@@ -9,7 +9,7 @@
         <a class="btn btn-primary btn-sm" href="{{route('admin.sites.create')}}">Agregar sede</a>
     @endcan
     @can('admin.sites.create')
-        <a class="btn btn-success btn-sm float-right" href="{{route('admin.sites.export')}}">Exportar a Excel</a>
+        <a class="btn btn-success btn-sm" href="{{route('admin.sites.export')}}">Exportar a Excel</a>
     @endcan
 
 

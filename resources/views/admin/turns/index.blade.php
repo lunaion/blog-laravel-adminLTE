@@ -9,7 +9,7 @@
         <a class="btn btn-primary btn-sm" href="{{route('admin.turns.create')}}">Marcar turno</a>
     @endcan
     @can('admin.turns.export')
-        <a class="btn btn-success btn-sm float-right" href="{{route('admin.turns.export')}}">Exportar a Excel</a>
+        <a class="btn btn-success btn-sm" href="{{route('admin.turns.export')}}">Exportar a Excel</a>
     @endcan
 @stop
 
