@@ -42,12 +42,23 @@ class TurnController extends Controller
             'site_id' => 'required',
         ]);
 
-        $turn = Turn::create($request->all()+[
-            'user_id' => Auth::user()->id,
-            'local_ip' => $request->getClientIp(),
-            'date' => Carbon::now()->toDateString(),
-            'time' => Carbon::now()->toTimeString(),
-        ]);
+        $turno = Turn::where('user_id', auth()->user()->id)
+                        ->where('date', Carbon::now()->format('d-m-Y'))
+                        ->first();
+
+        if ($turno) {
+            return redirect()->route('admin.turns.index')
+                                ->with('warning', 'Ya has ingresado al turno el día de hoy, por favor intenta de nuevo mañana.');
+        } else {
+
+            $turn = Turn::create($request->all()+[
+                'user_id' => Auth::user()->id,
+                'local_ip' => $request->getClientIp(),
+                'date' => Carbon::now()->format('d-m-Y'),
+                'time' => Carbon::now()->toTimeString(),
+            ]);
+
+        }
 
         return redirect()->route('admin.turns.index', $turn)
                          ->with('info', 'Ha ingresado al turno con éxito');

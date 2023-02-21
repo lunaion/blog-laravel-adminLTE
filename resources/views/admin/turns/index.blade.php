@@ -21,6 +21,11 @@
             <strong>{{session('info')}}</strong>
         </div>
     @endif
+    @if (session('warning'))
+        <div class="alert alert-warning">
+            <strong>{{session('warning')}}</strong>
+        </div>
+    @endif
 
     @livewire('admin.turns-index')
 @stop
