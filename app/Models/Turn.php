@@ -9,7 +9,7 @@ class Turn extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'city_id', 'site_id', 'local_ip', 'date', 'time'];
+    protected $fillable = ['user_id', 'city_id', 'site_id', 'local_ip', 'status', 'date', 'time'];
 
     // Relación uno a muchos (Turn -> user)
     public function user(){

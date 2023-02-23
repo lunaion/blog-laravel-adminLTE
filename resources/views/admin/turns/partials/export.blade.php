@@ -11,6 +11,7 @@
             <th>Ciudad</th>
             <th>Sede</th>
             <th>IP</th>
+            <th>Estado</th>
             <th>Fecha</th>
             <th>Hora</th>
             <th>Fecha y hora del registro</th>
@@ -26,6 +27,7 @@
                 <td>{{$turn->city->name}}</td>
                 <td>{{$turn->site->name}}</td>
                 <td>{{$turn->local_ip}}</td>
+                <td>{{$turn->status}}</td>
                 <td>{{$turn->date}}</td>
                 <td>{{$turn->time}}</td>
                 <td>{{$turn->created_at}}</td>

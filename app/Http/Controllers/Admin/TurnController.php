@@ -29,26 +29,36 @@ class TurnController extends Controller
     public function create()
     {
 
+        $status = [
+            'Entrada' => 'Marcar entrada',
+            'Salida' => 'Marcar salida',
+        ];
+
         $cities = City::pluck('name', 'id');
         $sites = Site::pluck('name', 'id');
 
-        return view('admin.turns.create', compact('cities', 'sites'));
+        return view('admin.turns.create', compact('cities', 'sites', 'status'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
+            
+            'status' => 'required',
             'city_id' => 'required',
             'site_id' => 'required',
+            
         ]);
 
         $turno = Turn::where('user_id', auth()->user()->id)
                         ->where('date', Carbon::now()->format('d-m-Y'))
+                        ->where('status', $request->status)
                         ->first();
 
         if ($turno) {
+            
             return redirect()->route('admin.turns.index')
-                                ->with('warning', 'Ya has ingresado al turno el día de hoy, por favor intenta de nuevo mañana.');
+                            ->with('warning', 'Ya has gestionado los turnos por el día de hoy, por favor intenta de nuevo mañana.');
         } else {
 
             $turn = Turn::create($request->all()+[

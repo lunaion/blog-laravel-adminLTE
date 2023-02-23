@@ -1,14 +1,14 @@
 <div class="row">
-    {{-- <div class="col">
+    <div class="col">
         <div class="form-group">
-            {!! Form::label('user_id', 'Usuario') !!}
-            {!! Form::select('user_id', $users, null, ['class' => 'form-control']) !!}
+            {!! Form::label('status', 'Estado') !!}
+            {!! Form::select('status', $status, null, ['class' => 'form-control']) !!}
         
-            @error('city_id')
+            @error('status')
                 <small class="text-danger">{{$message}}</small>
             @enderror
-        </div>
-    </div> --}}
+        </div> 
+    </div>
 
     <div class="col">
         <div class="form-group">
