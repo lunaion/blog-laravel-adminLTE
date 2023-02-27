@@ -25,7 +25,7 @@ class TurnsIndex extends Component
                                 ->orWhere('username', 'LIKE', '%' . $this->search .'%');
                         })->orWhereHas('site', function($q) {
                             $q->where('name', 'LIKE', '%' . $this->search .'%');
-                        })->paginate(10);
+                        })->paginate(8);
         
         return view('livewire.admin.turns-index', compact('turns'));
 

@@ -56,22 +56,37 @@ class TurnController extends Controller
                         ->first();
 
         if ($turno) {
-            
-            return redirect()->route('admin.turns.index')
-                            ->with('warning', 'Ya has gestionado los turnos por el día de hoy, por favor intenta de nuevo mañana.');
-        } else {
 
+            if ($request->status == 'Entrada') {
+                return redirect()->route('admin.turns.index')
+                            ->with('warning', 'Ya marcaste la entrada por el día de hoy, por favor intenta de nuevo mañana.');
+            } 
+
+            if ($request->status == 'Salida') {
+                return redirect()->route('admin.turns.index')
+                            ->with('warning', 'Ya marcaste la salida por el día de hoy, por favor intenta de nuevo mañana.');
+            }
+            
+        } else {
             $turn = Turn::create($request->all()+[
                 'user_id' => Auth::user()->id,
                 'local_ip' => $request->getClientIp(),
                 'date' => Carbon::now()->format('d-m-Y'),
                 'time' => Carbon::now()->toTimeString(),
             ]);
-
         }
 
-        return redirect()->route('admin.turns.index', $turn)
-                         ->with('info', 'Ha ingresado al turno con éxito');
+        if ($turn) {
+           if ($request->status == 'Entrada') {
+                return redirect()->route('admin.turns.index', $turn)
+                                    ->with('info', 'Has ingresado al turno con éxito');
+           } else {
+                return redirect()->route('admin.turns.index', $turn)
+                                    ->with('info', 'Ha salido del turno con éxito');
+           }
+
+        }
+        
     }
 
     public function export(){
