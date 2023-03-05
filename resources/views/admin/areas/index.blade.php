@@ -4,15 +4,17 @@
 
 @section('content_header')
 
-    <h1>Lista de países</h1>
+    <h1>Lista de áreas</h1>
 
-    @can('admin.countries.create')
-        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.countries.create')}}">Agregar país</a>
+    @can('admin.areas.create')
+        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.areas.create')}}">Agregar área</a>    
     @endcan
+
 @stop
 
 @section('content')
-    <p>Desde aquí podrás ver la lista de países.</p>
+
+    <p>Desde aquí podrás ver la lista de áreas.</p>
 
     <div class="card">
         <div class="card-body">
@@ -26,18 +28,18 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($countries as $country)
+                    @foreach ($areas as $area)
                         <tr>
-                            <td>{{$country->id}}</td>
-                            <td>{{$country->name}}</td>
+                            <td>{{$area->id}}</td>
+                            <td>{{$area->name}}</td>
                             <td width="10px">
-                                @can('admin.countries.edit')
-                                    <a class="btn btn-warning btn-sm" href="{{route('admin.countries.edit', $country)}}">Editar</a>
+                                @can('admin.areas.edit')
+                                    <a class="btn btn-warning btn-sm" href="{{route('admin.areas.edit', $area)}}">Editar</a> 
                                 @endcan
                             </td>
                             <td width="10px">
-                                @can('admin.countries.destroy')
-                                    <form action="{{route('admin.countries.destroy', $country)}}" method="POST">
+                                @can('admin.areas.destroy')
+                                    <form action="{{route('admin.areas.destroy', $area)}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
@@ -51,4 +53,3 @@
         </div>
     </div>
 @stop
-

@@ -24,8 +24,8 @@
                 <td>{{$turn->user->name}}</td>
                 <td>{{$turn->user->document}}</td>
                 <td>{{$turn->user->username}}</td>
-                <td>{{$turn->city->name}}</td>
-                <td>{{$turn->site->name}}</td>
+                <td>{{ optional($turn->city)->name }}</td>
+                <td>{{ optional($turn->site)->name }}</td>
                 <td>{{$turn->local_ip}}</td>
                 <td>{{$turn->status}}</td>
                 <td>{{$turn->date}}</td>

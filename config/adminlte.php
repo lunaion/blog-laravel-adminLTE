@@ -346,6 +346,20 @@ return [
             'icon'    => 'fas fa-fw fa-cogs',
             'submenu' => [
                 [
+                    'text' => 'Áreas',
+                    'route'  => 'admin.areas.index',
+                    'icon' => 'fas fa-fw fa-th-list',
+                    'active' => ['admin/areas*'],
+                    'can'        => 'admin.areas.index',
+                ],
+                [
+                    'text' => 'Cargo',
+                    'route'  => 'admin.positions.index',
+                    'icon' => 'fas fa-fw fa-sitemap',
+                    'active' => ['admin/positions*'],
+                    // 'can'        => 'admin.positions.index',
+                ],
+                [
                     'text' => 'Ciudades',
                     'route'  => 'admin.cities.index',
                     'icon' => 'fas fa-fw fa-city',

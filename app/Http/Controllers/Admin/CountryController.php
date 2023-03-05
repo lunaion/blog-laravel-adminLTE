@@ -20,7 +20,6 @@ class CountryController extends Controller
     public function index()
     {
         $countries = Country::all();
-
         return view('admin.countries.index', compact('countries'));
     }
 
@@ -51,7 +50,7 @@ class CountryController extends Controller
     {
         $request -> validate([
             'name' => 'required',
-            'slug' => 'required|unique:countries',
+            'slug' => "required|unique:countries,slug,$country->id",
         ]);
 
         $country->update($request->all());

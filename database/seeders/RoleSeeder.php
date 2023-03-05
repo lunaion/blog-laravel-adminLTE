@@ -78,6 +78,15 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.turns.create', 
                             'description' => 'Ingresar a turno'])->syncRoles([$role1]);
 
+        Permission::create(['name' => 'admin.areas.index', 
+                            'description' => 'Ver listado de áreas'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.areas.create', 
+                            'description' => 'Crear áreas'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.areas.edit', 
+                            'description' => 'Editar áreas'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.areas.destroy', 
+                            'description' => 'Eliminar áreas'])->syncRoles([$role1]);
+
         Permission::create(['name' => 'admin.tags.index', 
                             'description' => 'Ver listado de etiquetas'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'admin.tags.create', 
