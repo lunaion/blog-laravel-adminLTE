@@ -22,9 +22,9 @@ return new class extends Migration
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')
                                                                         ->onUpdate('cascade');
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('set null')
                                                                         ->onUpdate('cascade');
-            $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade')
+            $table->foreign('site_id')->references('id')->on('sites')->onDelete('set null')
                                                                         ->onUpdate('cascade');
 
             $table->string('local_ip')->nullable();
