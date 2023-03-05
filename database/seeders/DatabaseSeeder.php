@@ -29,5 +29,7 @@ class DatabaseSeeder extends Seeder
         Category::factory(3)->create();
         Tag::factory(8)->create();
         $this->call(PostSeeder::class);
+        $this->call(CountrySeeder::class);
+        $this->call(CitySeeder::class);
     }
 }

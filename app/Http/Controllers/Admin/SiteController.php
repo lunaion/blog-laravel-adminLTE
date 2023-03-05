@@ -66,7 +66,7 @@ class SiteController extends Controller
     {
         $request->validate([
             'name' => 'required|min:3|max:100',
-            'slug' => "required|unique:headquarters,slug,$site->id",
+            'slug' => "required|unique:sites,slug,$site->id",
             'address' => 'required|min:3|max:100',
             'phone' => 'required|numeric|digits_between:7,12',
             'email' => 'required|email',

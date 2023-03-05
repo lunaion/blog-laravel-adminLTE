@@ -36,14 +36,10 @@ class CityController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => 'required|unique:cities',
-            'countries' => 'required',
+            'country_id' => 'required',
         ]);
 
         $city = City::create($request->all());
-
-        if ($request->countries) {
-            $city->countries()->sync($request->countries);
-        }
 
         return redirect()->route('admin.cities.edit', compact('city'))
                          ->with('info', 'La ciudad se creó con éxito');
@@ -66,10 +62,6 @@ class CityController extends Controller
         ]);
 
         $city->update($request->all());
-
-        if ($request->countries) {
-            $city->countries()->sync($request->countries);
-        }
 
         return redirect()->route('admin.cities.edit', compact('city'))
                          ->with('info', 'La ciudad se actualizó con éxito');

@@ -9,26 +9,25 @@ class City extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name', 'slug', 'country_id'];
 
     public function getRouteKeyName(){
         return "slug";
     }
 
-    // Relación muchos a muchos Country
-    public function countries(){
-        return $this->belongsToMany(Country::class);
+    // Una ciudad pertenece a un país.
+    public function country(){
+        return $this->belongsTo(Country::class);
     }
 
-    // Relación uno a muchos inversa (City <- Headquarter)
+    // Relación de uno a uno -> Una sede tiene una ciudad
     public function site(){
-        return $this->hasMany(Site::class);
+        return $this->hasOne(Site::class);
     }
 
-    // Relación uno a muchos (city -> turn)
+    // Relación de uno a uno -> Un turno tiene una ciudad.
     public function turn(){
-        return $this->belongsTo(Turn::class);
+        return $this->hasOne(Turn::class);
     }
 
-    
 }

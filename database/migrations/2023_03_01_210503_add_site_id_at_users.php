@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
-            $table->id();
+        Schema::table('users', function (Blueprint $table) {
 
-            $table->string('name');
-            $table->string('slug');
+            $table->unsignedBigInteger('site_id')->nullable()->after('email');
 
-            $table->unsignedBigInteger('country_id');
-            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade')
+            $table->foreign('site_id')->references('id')->on('sites')->onDelete('set null')
                                                                         ->onUpdate('cascade');
 
-            $table->timestamps();
         });
     }
 
@@ -34,6 +30,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

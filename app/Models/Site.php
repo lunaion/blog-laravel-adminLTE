@@ -15,18 +15,18 @@ class Site extends Model
         return "slug";
     }
 
-    // Relación uno a muchos (site -> City)
+    // Una ciudad pertenece a una sede.
     public function city(){
         return $this->belongsTo(City::class);
     }
 
-    // Relación uno a muchos (site -> user)
+    // Una sede pertenece a un usuario
     public function user(){
         return $this->belongsTo(User::class);
     }
 
-    // Relación uno a muchos (site -> turn)
+    // Relación de uno a uno -> Un turno pertenece a una sede.
     public function turn(){
-        return $this->belongsTo(Turn::class);
+        return $this->hasOne(Turn::class);
     }
 }

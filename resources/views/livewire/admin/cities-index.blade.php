@@ -22,11 +22,7 @@
                         <tr>
                             <td>{{$city->id}}</td>
                             <td>{{$city->name}}</td>
-                            <td>
-                                @foreach ($city->countries as $country)
-                                    {{$country->name}}
-                                @endforeach
-                            </td>
+                            <td>{{$city->country->name}}</td>
                             <td width="10px">
                                 @can('admin.cities.edit')
                                     <a class="btn btn-warning btn-sm" href="{{route('admin.cities.edit', $city)}}">Editar</a>

@@ -30,6 +30,16 @@
             </div>
 
             <div class="mt-4">
+                <x-jet-label for="site_id" value="{{ __('Sede') }}" />
+                <select name="site_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                    @foreach (\App\Models\Site::all() as $site)
+                        <option value="{{$site->id}}">{{$site->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+
+            <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Contraseña') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>

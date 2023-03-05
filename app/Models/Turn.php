@@ -11,17 +11,17 @@ class Turn extends Model
 
     protected $fillable = ['user_id', 'city_id', 'site_id', 'local_ip', 'status', 'date', 'time'];
 
-    // Relación uno a muchos (Turn -> user)
+    // Un usuario pertenece a un turno
     public function user(){
         return $this->belongsTo(User::class);
     }
 
-    // Relación uno a muchos (Turn -> City)
+    // Una ciudad pertenece a unb turno.
     public function city(){
         return $this->belongsTo(City::class);
     }
 
-    // Relación uno a muchos (Turn -> Site)
+    // Una sede pertence a un turno.
     public function site(){
         return $this->belongsTo(Site::class);
     }

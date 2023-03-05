@@ -15,8 +15,8 @@ class Country extends Model
         return "slug";
     }
 
-    // Relación muchos a muchos con City
+    // Relación de uno a muchos -> Un país tiene muchas ciudades.
     public function cities(){
-        return $this->belongsToMany(City::class);
+        return $this->hasMany(City::class);
     }
 }

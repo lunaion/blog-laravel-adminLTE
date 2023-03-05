@@ -14,7 +14,7 @@
 @stop
 
 @section('content')
-    <p>Desde aquí podrás ver quien ha marcado turno, además de poder marcar tu turno de ingreso.</p>
+    <p>Desde aquí podrás ver quien ha marcado entrada y salida en los turnos, además de poder gestionar tus turnos.</p>
 
     @if (session('info'))
         <div class="alert alert-success">

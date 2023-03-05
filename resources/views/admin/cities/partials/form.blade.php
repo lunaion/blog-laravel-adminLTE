@@ -17,10 +17,10 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('countries', 'Países') !!}
-    {!! Form::select('countries', $countries, null, ['class' => 'form-control']) !!}
+    {!! Form::label('country_id', 'Países') !!}
+    {!! Form::select('country_id', $countries, null, ['class' => 'form-control']) !!}
 
-    @error('countries')
+    @error('country_id')
         <small class="text-danger">{{$message}}</small>
     @enderror
 </div>

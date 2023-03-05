@@ -16,13 +16,16 @@ return new class extends Migration
         Schema::create('turns', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('city_id');
-            $table->unsignedBigInteger('site_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->unsignedBigInteger('site_id')->nullable();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')
+                                                                        ->onUpdate('cascade');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')
+                                                                        ->onUpdate('cascade');
+            $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade')
+                                                                        ->onUpdate('cascade');
 
             $table->string('local_ip')->nullable();
             $table->string('status');

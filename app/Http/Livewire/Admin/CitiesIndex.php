@@ -24,7 +24,7 @@ class CitiesIndex extends Component
     {
 
         $cities = City::where('name', 'LIKE', '%' . $this->search .'%')
-                        ->orWhereHas('countries', function($q) {
+                        ->orWhereHas('country', function($q) {
                             $q->where('name', 'LIKE', '%' . $this->search .'%');
                         })->paginate();
                         

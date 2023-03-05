@@ -31,6 +31,7 @@ class User extends Authenticatable
         'document',
         'username',
         'email',
+        'site_id',
         'password',
     ];
 
@@ -64,19 +65,19 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    // Relación uno a muchos (User -> Posts)
+    // Relación de uno a muchos -> Un usuario tiene muchos Post.
     public function posts(){
         return $this->hasMany(Post::class);
     }
 
-    // Relación uno a muchos inversa (User <- site)
+    // Relación de uno a uno -> Un usuario tiene una sede
     public function site(){
-        return $this->hasMany(Site::class);
+        return $this->hasOne(Site::class);
     }
 
-    // Relación uno a muchos (User -> turn)
-    public function turn(){
-        return $this->belongsTo(Turn::class);
+    // Relación de uno a muchos -> Un usuario tiene muchos turnos.
+    public function turns(){
+        return $this->hasMany(Turn::class);
     }
 
 }

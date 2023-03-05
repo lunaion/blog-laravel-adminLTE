@@ -26,9 +26,10 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
             'document' => $this->faker->numberBetween(1, 999999),
             'username' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'site_id' => null,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'two_factor_secret' => null,
