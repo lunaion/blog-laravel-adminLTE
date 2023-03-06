@@ -3,17 +3,14 @@
 @section('title', 'HelpDesk')
 
 @section('content_header')
-    <h1>Lista de áreas</h1>
-
-    @can('admin.areas.create')
-        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.areas.create')}}">Agregar área</a>    
+    <h1>Lista de backups</h1>
+    @can('admin.backups.create')
+        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.backups.create')}}">Agregar lista de backup</a>
     @endcan
-
 @stop
 
 @section('content')
-
-    <p>Desde aquí podrás ver la lista de áreas.</p>
+    <p>Desde aquí podrás ver la lista de backups.</p>
 
     <div class="card">
         <div class="card-body">
@@ -27,18 +24,18 @@
                 </thead>
 
                 <tbody>
-                    @foreach ($areas as $area)
+                    @foreach ($backups as $backup)
                         <tr>
-                            <td>{{$area->id}}</td>
-                            <td>{{$area->name}}</td>
+                            <td>{{$backup->id}}</td>
+                            <td>{{$backup->name}}</td>
                             <td width="10px">
-                                @can('admin.areas.edit')
-                                    <a class="btn btn-warning btn-sm" href="{{route('admin.areas.edit', $area)}}">Editar</a> 
+                                @can('admin.backups.edit')
+                                    <a class="btn btn-warning btn-sm" href="{{route('admin.backups.edit', $backup)}}">Editar</a>
                                 @endcan
                             </td>
                             <td width="10px">
-                                @can('admin.areas.destroy')
-                                    <form action="{{route('admin.areas.destroy', $area)}}" method="POST">
+                                @can('admin.backups.destroy')
+                                    <form action="{{route('admin.backups.destroy', $backup)}}" method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>

@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\AreaController;
+use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\LicenseActivatioController;
 use App\Http\Controllers\Admin\PositionController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RoleController;
@@ -33,6 +35,10 @@ Route::resource('turns', TurnController::class)->except('show', 'edit', 'update'
 Route::resource('areas', AreaController::class)->except('show')->names('admin.areas');
 
 Route::resource('positions', PositionController::class)->except('show')->names('admin.positions');
+
+Route::resource('licenseActivations', LicenseActivatioController::class)->except('show')->names('admin.licenseActivations');
+
+Route::resource('backups', BackupController::class)->except('show')->names('admin.backups');
 
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 

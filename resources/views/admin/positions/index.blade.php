@@ -3,11 +3,10 @@
 @section('title', 'HelpDesk')
 
 @section('content_header')
-    
     <h1>Lista de cargos</h1>
-
-    <a class="btn btn-primary btn-sm float-right" href="{{route('admin.positions.create')}}">Agregar cargo</a>
-
+    @can('admin.positions.create')
+        <a class="btn btn-primary btn-sm float-right" href="{{route('admin.positions.create')}}">Agregar cargo</a>
+    @endcan
 @stop
 
 @section('content')
@@ -31,14 +30,18 @@
                             <td>{{$position->id}}</td>
                             <td>{{$position->name}}</td>
                             <td width="10px">
-                                <a class="btn btn-warning btn-sm" href="{{route('admin.positions.edit', $position)}}">Editar</a> 
+                                @can('admin.positions.edit')
+                                    <a class="btn btn-warning btn-sm" href="{{route('admin.positions.edit', $position)}}">Editar</a> 
+                                @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{route('admin.positions.destroy', $position)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>     
+                                @can('admin.positions.destroy')
+                                    <form action="{{route('admin.positions.destroy', $position)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>     
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

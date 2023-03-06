@@ -87,6 +87,33 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.areas.destroy', 
                             'description' => 'Eliminar áreas'])->syncRoles([$role1]);
 
+        Permission::create(['name' => 'admin.positions.index', 
+                            'description' => 'Ver listado de cargos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.positions.create', 
+                            'description' => 'Crear cargos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.positions.edit', 
+                            'description' => 'Editar cargos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.positions.destroy', 
+                            'description' => 'Eliminar cargos'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'admin.backups.index', 
+                            'description' => 'Ver listado de backups'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.backups.create', 
+                            'description' => 'Crear backups'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.backups.edit', 
+                            'description' => 'Editar backups'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.backups.destroy', 
+                            'description' => 'Eliminar backups'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'admin.licenseActivations.index', 
+                            'description' => 'Ver listado de activaciones de licencias'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.licenseActivations.create', 
+                            'description' => 'Crear activaciones de licencias'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.licenseActivations.edit', 
+                            'description' => 'Editar activaciones de licencias'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.licenseActivations.destroy', 
+                            'description' => 'Eliminar activaciones de licencias'])->syncRoles([$role1]);
+
         Permission::create(['name' => 'admin.tags.index', 
                             'description' => 'Ver listado de etiquetas'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'admin.tags.create', 

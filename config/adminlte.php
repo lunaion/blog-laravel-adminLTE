@@ -353,11 +353,11 @@ return [
                     'can'        => 'admin.areas.index',
                 ],
                 [
-                    'text' => 'Cargo',
+                    'text' => 'Cargos',
                     'route'  => 'admin.positions.index',
                     'icon' => 'fas fa-fw fa-sitemap',
                     'active' => ['admin/positions*'],
-                    // 'can'        => 'admin.positions.index',
+                    'can'        => 'admin.positions.index',
                 ],
                 [
                     'text' => 'Ciudades',
@@ -376,7 +376,7 @@ return [
                 [
                     'text' => 'Sedes',
                     'route'  => 'admin.sites.index',
-                    'icon' => 'fas fa-fw fa-store-alt',
+                    'icon' => 'fas fa-fw fa-building',
                     'active' => ['admin/sites*'],
                     'can'        => 'admin.sites.index',
                 ],
@@ -384,7 +384,7 @@ return [
         ],
         [
             'text'    => 'Gestión de posts',
-            'icon'    => 'fas fa-fw fa-keyboard',
+            'icon'    => 'fas fa-fw fa-file-signature',
             'submenu' => [
                 [
                     'text' => 'Categorías',
@@ -412,6 +412,38 @@ return [
                     'icon' => 'fas fa-fw fa-file',
                     'can'        => 'admin.posts.create',
                 ],
+            ],
+        ],
+        [
+            'text'    => 'Service Desk',
+            'icon'    => 'fas fa-fw fa-laptop-medical',
+            'submenu' => [
+                [
+                    'text' => 'Backups de datos',
+                    'route'  => 'admin.backups.index',
+                    'icon' => 'fas fa-fw fa-hdd',
+                    'active' => ['admin/backups*'],
+                    'can'        => 'admin.categories.index',
+                ],
+                [
+                    'text' => 'Activación de licencias',
+                    'route'  => 'admin.licenseActivations.index',
+                    'icon' => 'fas fa-fw fa-key',
+                    'active' => ['admin/licenseActivations*'],
+                    'can'        => 'admin.licenseActivations.index',
+                ],
+                /* [
+                    'text'       => 'Validaciones generales',
+                    'route'        => 'admin.posts.index',
+                    'icon' => 'fas fa-fw fa-clipboard',
+                    'can'        => 'admin.posts.index',
+                ],
+                [
+                    'text'       => 'Crear nuevo post',
+                    'route'        => 'admin.posts.create',
+                    'icon' => 'fas fa-fw fa-file',
+                    'can'        => 'admin.posts.create',
+                ], */
             ],
         ],
     
