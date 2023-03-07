@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <p>Desde aquí podrás crear un a nuevo post</p>
+    <p>Desde aquí podrás crear una nuevo post</p>
 
     <div class="card">
         <div class="card-body">

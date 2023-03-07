@@ -80,4 +80,9 @@ class User extends Authenticatable
         return $this->hasMany(Turn::class);
     }
 
+    // Relación de uno a muchos -> Un usuario tiene muchas Reinstalaciones.
+    public function reinstallations(){
+        return $this->hasMany(Reinstallation::class);
+    }
+
 }

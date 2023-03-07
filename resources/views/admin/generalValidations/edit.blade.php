@@ -3,23 +3,30 @@
 @section('title', 'HelpDesk')
 
 @section('content_header')
-    <h1>Crear activación de licencia</h1>
+    <h1>Editar validación general</h1>
 @stop
 
 @section('content')
-    <p>Desde aquí podrás crear una activación de licencia.</p>
+    <p>Desde aquí podrás editar o actualizar las validaciones generales.</p>
+
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+    @endif
 
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.licenseActivations.store']) !!}
+            {!! Form::model($generalValidation, ['route' => ['admin.generalValidations.update', $generalValidation], 'method' => 'put']) !!}
 
-                @include('admin.licenseActivations.partials.form')
+            @include('admin.generalValidations.partials.form')
 
-                {!! Form::submit('Crear activación de licencia', ['class' => 'btn btn-primary btn-sm']) !!}
+            {!! Form::submit('Actualizar validación general', ['class' => 'btn btn-primary btn-sm']) !!}
 
             {!! Form::close() !!}
         </div>
     </div>
+
 @stop
 
 @section('js')

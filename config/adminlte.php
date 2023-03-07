@@ -419,6 +419,12 @@ return [
             'icon'    => 'fas fa-fw fa-laptop-medical',
             'submenu' => [
                 [
+                    'text'       => 'Reinstalaciones',
+                    'route'        => 'admin.reinstallations.index',
+                    'icon' => 'fas fa-fw fa-download',
+                    // 'can'        => 'admin.reinstallations.index',
+                ],
+                [
                     'text' => 'Backups de datos',
                     'route'  => 'admin.backups.index',
                     'icon' => 'fas fa-fw fa-hdd',
@@ -432,18 +438,12 @@ return [
                     'active' => ['admin/licenseActivations*'],
                     'can'        => 'admin.licenseActivations.index',
                 ],
-                /* [
-                    'text'       => 'Validaciones generales',
-                    'route'        => 'admin.posts.index',
-                    'icon' => 'fas fa-fw fa-clipboard',
-                    'can'        => 'admin.posts.index',
-                ],
                 [
-                    'text'       => 'Crear nuevo post',
-                    'route'        => 'admin.posts.create',
-                    'icon' => 'fas fa-fw fa-file',
-                    'can'        => 'admin.posts.create',
-                ], */
+                    'text'       => 'Validaciones generales',
+                    'route'        => 'admin.generalValidations.index',
+                    'icon' => 'fas fa-fw fa-tasks',
+                    'can'        => 'admin.generalValidations.index',
+                ],
             ],
         ],
     

@@ -3,19 +3,19 @@
 @section('title', 'HelpDesk')
 
 @section('content_header')
-    <h1>Crear activación de licencia</h1>
+    <h1>Crear validación general</h1>
 @stop
 
 @section('content')
-    <p>Desde aquí podrás crear una activación de licencia.</p>
+    <p>Desde aquí podrás crear una validación general.</p>
 
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.licenseActivations.store']) !!}
+            {!! Form::open(['route' => 'admin.generalValidations.store']) !!}
 
-                @include('admin.licenseActivations.partials.form')
+                @include('admin.generalValidations.partials.form')
 
-                {!! Form::submit('Crear activación de licencia', ['class' => 'btn btn-primary btn-sm']) !!}
+                {!! Form::submit('Crear validación general', ['class' => 'btn btn-primary btn-sm']) !!}
 
             {!! Form::close() !!}
         </div>

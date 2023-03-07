@@ -114,6 +114,15 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.licenseActivations.destroy', 
                             'description' => 'Eliminar activaciones de licencias'])->syncRoles([$role1]);
 
+        Permission::create(['name' => 'admin.generalValidations.index', 
+                            'description' => 'Ver listado de validaciones generales'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.generalValidations.create', 
+                            'description' => 'Crear validaciones generales'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.generalValidations.edit', 
+                            'description' => 'Editar validaciones generales'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.generalValidations.destroy', 
+                            'description' => 'Eliminar validaciones generales'])->syncRoles([$role1]);
+
         Permission::create(['name' => 'admin.tags.index', 
                             'description' => 'Ver listado de etiquetas'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'admin.tags.create', 
