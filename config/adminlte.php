@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>HELP</b>DESK',
+    'logo' => '<b>Soporte</b> Local',
     'logo_img' => 'vendor/adminlte/dist/img/logo-admin.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -415,11 +415,11 @@ return [
             ],
         ],
         [
-            'text'    => 'Service Desk',
+            'text'    => 'Reinstalaciones',
             'icon'    => 'fas fa-fw fa-laptop-medical',
             'submenu' => [
                 [
-                    'text'       => 'Reinstalaciones',
+                    'text'       => 'Listado de reinstalaciones',
                     'route'        => 'admin.reinstallations.index',
                     'icon' => 'fas fa-fw fa-download',
                     // 'can'        => 'admin.reinstallations.index',

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'HelpDesk')
+@section('title', 'Soporte Local')
 
 @section('content_header')
     <h1>Lista de activaciones de validaciones generales</h1>

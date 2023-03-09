@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'HelpDesk')
+@section('title', 'Soporte Local')
 
 @section('content_header')
     <h1>Crear activación de licencia</h1>
