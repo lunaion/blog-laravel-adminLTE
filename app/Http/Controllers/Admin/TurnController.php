@@ -50,40 +50,54 @@ class TurnController extends Controller
             
         ]);
 
-        $turno = Turn::where('user_id', auth()->user()->id)
-                        ->where('date', Carbon::now()->format('d-m-Y'))
-                        ->where('status', $request->status)
-                        ->first();
+        // Verificar si ya existe un registro de entrada para el usuario actual en la fecha actual
+        $entry = Turn::where('user_id', auth()->user()->id)
+                    ->where('date', Carbon::now()->format('d-m-Y'))
+                    ->where('status', 'Entrada')
+                    ->first();
 
-        if ($turno) {
+        if ($request->status == 'Entrada') {
 
-            if ($request->status == 'Entrada') {
+            if ($entry) {
                 return redirect()->route('admin.turns.index')
-                            ->with('warning', 'Ya marcaste la entrada por el día de hoy, por favor intenta de nuevo mañana.');
-            } 
+                                ->with('warning', 'Ya marcaste la entrada por el día de hoy, por favor intenta de nuevo mañana.');
+            } else {
+                $turn = Turn::create($request->all()+[
+                    'user_id' => Auth::user()->id,
+                    'local_ip' => $request->getClientIp(),
+                    'date' => Carbon::now()->format('d-m-Y'),
+                    'time' => Carbon::now()->toTimeString(),
+                ]);
 
-            if ($request->status == 'Salida') {
-                return redirect()->route('admin.turns.index')
-                            ->with('warning', 'Ya marcaste la salida por el día de hoy, por favor intenta de nuevo mañana.');
+                return redirect()->route('admin.turns.index', $turn)
+                                ->with('info', 'Has ingresado al turno con éxito');
             }
-            
-        } else {
-            $turn = Turn::create($request->all()+[
-                'user_id' => Auth::user()->id,
-                'local_ip' => $request->getClientIp(),
-                'date' => Carbon::now()->format('d-m-Y'),
-                'time' => Carbon::now()->toTimeString(),
-            ]);
-        }
 
-        if ($turn) {
-           if ($request->status == 'Entrada') {
-                return redirect()->route('admin.turns.index', $turn)
-                                    ->with('info', 'Has ingresado al turno con éxito');
-           } else {
-                return redirect()->route('admin.turns.index', $turn)
+        } elseif ($request->status == 'Salida') {
+            if ($entry) {
+                $turno = Turn::where('user_id', auth()->user()->id)
+                            ->where('date', Carbon::now()->format('d-m-Y'))
+                            ->where('status', $request->status)
+                            ->first();
+                
+                if ($turno) {
+                    return redirect()->route('admin.turns.index')
+                                    ->with('warning', 'Ya marcaste la salida por el día de hoy, por favor intenta de nuevo mañana.');
+                } else {
+                    $turn = Turn::create($request->all()+[
+                        'user_id' => Auth::user()->id,
+                        'local_ip' => $request->getClientIp(),
+                        'date' => Carbon::now()->format('d-m-Y'),
+                        'time' => Carbon::now()->toTimeString(),
+                    ]);
+
+                    return redirect()->route('admin.turns.index', $turn)
                                     ->with('info', 'Ha salido del turno con éxito');
-           }
+                }
+            } else {
+                return redirect()->route('admin.turns.index')
+                                ->with('warning', 'Debe marcar la entrada primero.');
+            }
 
         }
         

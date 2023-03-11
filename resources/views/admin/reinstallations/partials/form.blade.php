@@ -1,4 +1,5 @@
-<div class="row">
+@livewire('admin.get-data-users')
+{{-- <div class="row">
     <div class="col">
         <div class="form-group">
             {!! Form::label('ticket', 'Ticket número') !!}
@@ -52,7 +53,7 @@
             @enderror
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="row">
     <div class="col">
