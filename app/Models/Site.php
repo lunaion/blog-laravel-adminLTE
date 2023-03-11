@@ -29,4 +29,9 @@ class Site extends Model
     public function turn(){
         return $this->hasOne(Turn::class);
     }
+
+    // Relación de uno a muchos -> Una sede tiene muchas Reinstalaciones.
+    public function reinstallations(){
+        return $this->hasMany(Site::class);
+    }
 }

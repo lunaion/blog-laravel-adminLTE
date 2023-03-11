@@ -14,4 +14,9 @@ class Backup extends Model
     public function getRouteKeyName(){
         return "slug";
     }
+
+    // Relación muchos a muchos -> Un backup tiene muchas reinstalaciones
+    public function reinstallations(){
+        return $this->belongsToMany(Reinstallation::class);
+    }
 }

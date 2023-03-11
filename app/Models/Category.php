@@ -15,7 +15,7 @@ class Category extends Model
         return "slug";
     }
 
-    // Relación uno a muchos (Category -> Posts)
+    // Relación uno a muchos -> Una categoría tiene muchos posts
     public function posts(){
         return $this->hasMany(Post::class);
     }

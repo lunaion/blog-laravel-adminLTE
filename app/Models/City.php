@@ -30,4 +30,9 @@ class City extends Model
         return $this->hasOne(Turn::class);
     }
 
+    // Relación de uno a muchos -> Una ciudad tiene muchas Reinstalaciones.
+    public function reinstallations(){
+        return $this->hasMany(Reinstallation::class);
+    }
+
 }

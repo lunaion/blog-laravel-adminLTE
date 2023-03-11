@@ -14,4 +14,9 @@ class Position extends Model
     public function getRouteKeyName(){
         return "slug";
     }
+
+    // Relación de uno a muchos -> Una cargo tiene muchas Reinstalaciones.
+    public function reinstallations(){
+        return $this->hasMany(Reinstallation::class);
+    }
 }
