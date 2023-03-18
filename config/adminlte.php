@@ -429,7 +429,7 @@ return [
                     'route'  => 'admin.backups.index',
                     'icon' => 'fas fa-fw fa-hdd',
                     'active' => ['admin/backups*'],
-                    'can'        => 'admin.categories.index',
+                    'can'        => 'admin.backups.index',
                 ],
                 [
                     'text' => 'Activación de licencias',
@@ -447,19 +447,7 @@ return [
             ],
         ],
     
-       /*  ['header' => 'OPCIONES DE BLOG'],
-        [
-            'text'       => 'Lista de posts',
-            'route'        => 'admin.posts.index',
-            'icon' => 'fas fa-fw fa-clipboard',
-            'can'        => 'admin.posts.index',
-        ],
-        [
-            'text'       => 'Crear nuevo post',
-            'route'        => 'admin.posts.create',
-            'icon' => 'fas fa-fw fa-file',
-            'can'        => 'admin.posts.create',
-        ], */
+        // ['header' => 'OPCIONES DE BLOG'],
     ],
 
     /*

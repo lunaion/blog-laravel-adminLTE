@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('backup_reinstallation', function (Blueprint $table) {
+        Schema::create('license_activation_reinstallation', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('backup_id');
+            $table->unsignedBigInteger('license_activation_id');
             $table->unsignedBigInteger('reinstallation_id');
 
-            $table->foreign('backup_id')->references('id')->on('backups')->onDelete('cascade')
-                                                                        ->onUpdate('cascade');
+            $table->foreign('license_activation_id')->references('id')->on('license_activations')->onDelete('cascade')
+                                                                                                    ->onUpdate('cascade');
             $table->foreign('reinstallation_id')->references('id')->on('reinstallations')->onDelete('cascade')
                                                                                         ->onUpdate('cascade');
 
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('license_activation_reinstallation');
     }
 };

@@ -16,6 +16,11 @@ class Reinstallation extends Model
         return $this->belongsTo(User::class, 'tecnico_id');
     }
 
+    // Una reinstalación pertenece a un usuario.
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     // Una reinstalación pertenece a una area.
     public function area(){
         return $this->belongsTo(Area::class);
@@ -39,5 +44,15 @@ class Reinstallation extends Model
     // Relación muchos a muchos -> Una reinstalación tiene muchos Backups
     public function backups(){
         return $this->belongsToMany(Backup::class);
+    }
+
+    // Relación muchos a muchos -> Una reinstalación tiene muchas activaciones de licencias.
+    public function licenseActivations(){
+        return $this->belongsToMany(LicenseActivation::class);
+    }
+
+    // Relación muchos a muchos -> Una reinstalación tiene muchas validaciones generales.
+    public function generalValidations(){
+        return $this->belongsToMany(GeneralValidation::class);
     }
 }

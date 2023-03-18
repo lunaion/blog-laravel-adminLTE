@@ -14,4 +14,9 @@ class GeneralValidation extends Model
     public function getRouteKeyName(){
         return "slug";
     }
+
+    // Relación muchos a muchos -> Una validación general tiene muchas reinstalaciones
+    public function reinstallations(){
+        return $this->belongsToMany(Reinstallation::class);
+    }
 }

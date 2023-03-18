@@ -119,17 +119,16 @@
 <div class="form-group">
     <p class="font-weight-bold">Activación de Licencias (Autorizadas)</p>
 
-    Se imprime listado de licencias, donde se selecionará solo las aprobadas, instaladas y activadas.
-    {{-- @foreach ($tags as $tag)
+    @foreach ($licenseActivations as $licenseActivation)
         
         <label class="mr-2">
-            {!! Form::checkbox('tags[]', $tag->id, null) !!}
-            {{$tag->name}}
+            {!! Form::checkbox('licenseActivations[]', $licenseActivation->id, null) !!}
+            {{$licenseActivation->name}}
         </label>
 
-    @endforeach --}}
+    @endforeach
 
-    @error('tags')
+    @error('licenseActivations')
         <br>
         <small class="text-danger">{{$message}}</small>
     @enderror
@@ -138,17 +137,16 @@
 <div class="form-group">
     <p class="font-weight-bold">Validaciones Generales</p>
 
-    Se imprime listado de posibles validaciones, dondes se seleccionará solo las realizadas.
-    {{-- @foreach ($tags as $tag)
+    @foreach ($generalValidations as $generalValidation)
         
         <label class="mr-2">
-            {!! Form::checkbox('tags[]', $tag->id, null) !!}
-            {{$tag->name}}
+            {!! Form::checkbox('generalValidations[]', $generalValidation->id, null) !!}
+            {{$generalValidation->name}}
         </label>
 
-    @endforeach --}}
+    @endforeach
 
-    @error('tags')
+    @error('generalValidations')
         <br>
         <small class="text-danger">{{$message}}</small>
     @enderror

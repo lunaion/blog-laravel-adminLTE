@@ -18,5 +18,5 @@
         </div>
     @endif
     
-    {{-- @livewire('admin.reinstallations-index') --}}
+    @livewire('admin.reinstallations-index')
 @stop
