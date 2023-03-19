@@ -1,5 +1,3 @@
-@livewire('admin.get-data-users')
-
 <div class="row">
     <div class="col">
         <div class="form-group">

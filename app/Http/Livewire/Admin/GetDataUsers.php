@@ -20,6 +20,6 @@ class GetDataUsers extends Component
         $this->name = $user->name ?? '';
         $this->email = $user->email ?? '';
 
-        return view('livewire.admin.get-data-users');
+        return view('livewire.admin.get-data-users', compact('user'));
     }
 }

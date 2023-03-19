@@ -4,7 +4,7 @@
         <input wire:model="search" class="form-control" placeholder="Puedes buscar por nombre de usuario o documento">
     </div>
 
-    @if ($reinstallations->count())
+    @if ($reinstallations->count() > 0)
 
         <div class="card-body">
             <table class="table table-striped">
@@ -28,11 +28,11 @@
                 <tbody>
                     @foreach ($reinstallations as $reinstallation)
                         <tr>
-                            <td>{{$reinstallation->ticket}}</td>
-                            <td>{{$reinstallation->user->name}}</td>
-                            <td>{{$reinstallation->user->document}}</td>
-                            <td>{{$reinstallation->user->username}}</td>
-                            <td>{{$reinstallation->city->name}}</td>
+                            <td>{{ $reinstallation->ticket }}</td>
+                            <td>{{ $reinstallation->user->name }}</td>
+                            <td>{{ $reinstallation->user->document }}</td>
+                            <td>{{ $reinstallation->user->username }}</td>
+                            <td>{{ $reinstallation->city->name }}</td>
                             {{-- <td>{{$reinstallation->site->name}}</td> --}}
                             {{-- <td>{{ optional($turn->city)->name }}</td> --}}
                             {{-- <td>{{ optional($turn->site)->name }}</td> --}}
@@ -40,8 +40,8 @@
                             {{-- <td>{{$turn->status}}</td> --}}
                             {{-- <td>{{$turn->date}}</td> --}}
                             {{-- <td>{{$turn->time}}</td> --}}
-                            <td>{{$reinstallation->created_at}}</td>
-                        </tr>                     
+                            <td>{{ $reinstallation->created_at }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
 
@@ -49,15 +49,13 @@
         </div>
 
         <div class="card-footer">
-            {{$reinstallations->links()}}
+            {{ $reinstallations->links() }}
         </div>
-
     @else
-
         <div class="card-body">
             <strong>No se encontró ningún registro con ese nombre.</strong>
         </div>
-        
+
     @endif
 
 </div>

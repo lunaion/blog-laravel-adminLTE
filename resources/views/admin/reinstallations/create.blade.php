@@ -12,10 +12,10 @@
     <div class="card">
         <div class="card-body">
             {!! Form::open(['route' => 'admin.reinstallations.store', 'autocomplete' => 'off', 'files' => true]) !!}
+            @livewire('admin.get-data-users')
+            @include('admin.reinstallations.partials.form')
 
-                    @include('admin.reinstallations.partials.form')
-
-                {!! Form::submit('Crear reinstalación', ['class' => 'btn btn-primary btn-sm']) !!}
+            {!! Form::submit('Crear reinstalación', ['class' => 'btn btn-primary btn-sm']) !!}
 
             {!! Form::close() !!}
         </div>
@@ -23,18 +23,17 @@
 @stop
 
 @section('js')
-    
-    <script src="{{asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js')}}"></script>
+
+    <script src="{{ asset('vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js') }}"></script>
 
     <script>
         /* $(document).ready( function() {
-            $("#name").stringToSlug({
-                setEvents: 'keyup keydown blur',
-                getPut: '#slug',
-                space: '-'
-            });
-        }); */
-
+                $("#name").stringToSlug({
+                    setEvents: 'keyup keydown blur',
+                    getPut: '#slug',
+                    space: '-'
+                });
+            }); */
     </script>
 
 @endsection

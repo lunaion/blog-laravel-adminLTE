@@ -36,7 +36,7 @@ class ReinstallationController extends Controller
         return view('admin.reinstallations.create', compact('areas', 'positions', 'cities', 'sites', 'backups', 'licenseActivations', 'generalValidations'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request)  
     {
 
         $request -> validate([
@@ -56,7 +56,7 @@ class ReinstallationController extends Controller
             'general_observation' => 'required',
         ]);
 
-        $user = User::where('document', $request->input('document'))->firstOrFail();
+        $user = User::where('document', $request->document)->firstOrFail();
 
         $reinstallation = Reinstallation::create($request->all()+[
             'tecnico_id' => Auth::user()->id,
@@ -94,10 +94,7 @@ class ReinstallationController extends Controller
         $licenseActivations = LicenseActivation::all();
         $generalValidations = GeneralValidation::all();
 
-        // Obtener información adicional del usuario
-        $user = User::findOrFail($reinstallation->user_id);
-
-        return view('admin.reinstallations.edit', compact('reinstallation', 'areas', 'positions', 'cities', 'sites', 'backups', 'licenseActivations', 'generalValidations', 'user')); 
+        return view('admin.reinstallations.edit', compact('reinstallation', 'areas', 'positions', 'cities', 'sites', 'backups', 'licenseActivations', 'generalValidations')); 
     }
 
     public function update(Request $request, Reinstallation $reinstallation)
