@@ -422,7 +422,7 @@ return [
                     'text'       => 'Listado de reinstalaciones',
                     'route'        => 'admin.reinstallations.index',
                     'icon' => 'fas fa-fw fa-download',
-                    // 'can'        => 'admin.reinstallations.index',
+                    'can'        => 'admin.reinstallations.index',
                 ],
                 [
                     'text' => 'Backups de datos',

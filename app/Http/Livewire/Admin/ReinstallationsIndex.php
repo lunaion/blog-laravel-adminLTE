@@ -20,14 +20,13 @@ class ReinstallationsIndex extends Component
     {
 
         $reinstallations = Reinstallation::orWhereHas('user', function($q) {
-            $q->where('name', 'LIKE', '%' . $this->search .'%')
-                ->orWhere('document', 'LIKE', '%' . $this->search .'%')
-                ->orWhere('username', 'LIKE', '%' . $this->search .'%');
-        })->orWhereHas('city', function($q) {
-            $q->where('name', 'LIKE', '%' . $this->search .'%');
-        })->orWhereHas('site', function($q) {
-            $q->where('name', 'LIKE', '%' . $this->search .'%');
-        })->latest('id')->paginate(8);
+                                                $q->where('name', 'LIKE', '%' . $this->search .'%')
+                                                    ->orWhere('document', 'LIKE', '%' . $this->search .'%')
+                                                    ->orWhere('username', 'LIKE', '%' . $this->search .'%');
+                                            })->orWhereHas('city', function($q) {
+                                                $q->where('name', 'LIKE', '%' . $this->search .'%');
+                                            })->orWhere('ticket', 'LIKE','%' . $this->search . '%')
+                                                ->latest('id')->paginate(8);
 
         return view('livewire.admin.reinstallations-index', compact('reinstallations'));
     }

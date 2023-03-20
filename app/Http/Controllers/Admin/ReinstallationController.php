@@ -75,13 +75,13 @@ class ReinstallationController extends Controller
             $reinstallation->generalValidations()->attach($request->generalValidations);
         }
 
-        return redirect()->route('admin.reinstallations.edit', compact('reinstallation'));
+        return redirect()->route('admin.reinstallations.edit', compact('reinstallation'))->with('info', 'La reinstalación se creó con éxito');
 
     }
 
     public function show(Reinstallation $reinstallation)
     {
-        // 
+        return view('admin.reinstallations.show', compact('reinstallation')); 
     }
 
     public function edit(Reinstallation $reinstallation)
@@ -99,11 +99,30 @@ class ReinstallationController extends Controller
 
     public function update(Request $request, Reinstallation $reinstallation)
     {
-        //
+        $reinstallation->update($request->all());
+
+        if ($request->backups) {
+            $reinstallation->backups()->attach($request->backups);
+        }
+
+        if ($request->licenseActivations) {
+            $reinstallation->licenseActivations()->attach($request->licenseActivations);
+        }
+
+        if ($request->generalValidations) {
+            $reinstallation->generalValidations()->attach($request->generalValidations);
+        }
+
+        return redirect()->route('admin.reinstallations.edit', $reinstallation)
+                            ->with('info', 'La reinstalación se actualizó con éxito');
+
     }
 
     public function destroy(Reinstallation $reinstallation)
     {
-        //
+        $reinstallation->delete();
+
+        return redirect()->route('admin.reinstallations.index', $reinstallation)
+                        ->with('info', 'La reinstalación se eliminó con éxito');
     }
 }

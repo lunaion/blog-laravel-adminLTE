@@ -18,7 +18,7 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $role1 = Role::create(['name' => 'Admin']);
-        $role2 = Role::create(['name' => 'Blogger']);
+        $role2 = Role::create(['name' => 'Técnico de Soporte Local']);
 
         Permission::create(['name' => 'admin.home', 
                             'description' => 'Ver el dashboard'])->syncRoles([$role1, $role2]);
@@ -122,6 +122,17 @@ class RoleSeeder extends Seeder
                             'description' => 'Editar validaciones generales'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.generalValidations.destroy', 
                             'description' => 'Eliminar validaciones generales'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'admin.reinstallations.index', 
+                            'description' => 'Ver listado de reinstalaciones'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.reinstallations.create', 
+                            'description' => 'Crear reinstalaciones'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.reinstallations.edit', 
+                            'description' => 'Editar reinstalaciones'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.reinstallations.show', 
+                            'description' => 'Ver detalles reinstalaciones'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.reinstallations.destroy', 
+                            'description' => 'Eliminar reinstalaciones'])->syncRoles([$role1]);
 
         Permission::create(['name' => 'admin.tags.index', 
                             'description' => 'Ver listado de etiquetas'])->syncRoles([$role1, $role2]);

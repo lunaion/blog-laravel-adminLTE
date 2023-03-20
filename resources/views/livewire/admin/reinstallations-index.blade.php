@@ -16,11 +16,6 @@
                         <th>Documento</th>
                         <th>Usuario de red</th>
                         <th>Ciudad</th>
-                        {{-- <th>Sede</th> --}}
-                        {{-- <th>IP</th> --}}
-                        {{-- <th>Estado</th> --}}
-                        {{-- <th>Fecha</th> --}}
-                        {{-- <th>Hora</th> --}}
                         <th>Fecha de creación</th>
                     </tr>
                 </thead>
@@ -33,14 +28,27 @@
                             <td>{{ $reinstallation->user->document }}</td>
                             <td>{{ $reinstallation->user->username }}</td>
                             <td>{{ $reinstallation->city->name }}</td>
-                            {{-- <td>{{$reinstallation->site->name}}</td> --}}
-                            {{-- <td>{{ optional($turn->city)->name }}</td> --}}
-                            {{-- <td>{{ optional($turn->site)->name }}</td> --}}
-                            {{-- <td>{{$turn->local_ip}}</td> --}}
-                            {{-- <td>{{$turn->status}}</td> --}}
-                            {{-- <td>{{$turn->date}}</td> --}}
-                            {{-- <td>{{$turn->time}}</td> --}}
                             <td>{{ $reinstallation->created_at }}</td>
+                            <td width="10px">
+                                @can('admin.reinstallations.show')
+                                    <a class="btn btn-success btn-sm" href="{{route('admin.reinstallations.show', $reinstallation)}}">Ver</a> 
+                                @endcan
+                            </td>
+                            <td width="10px">
+                                @can('admin.reinstallations.edit')
+                                    <a class="btn btn-warning btn-sm" href="{{route('admin.reinstallations.edit', $reinstallation)}}">Editar</a>
+                                @endcan
+                            </td>
+                            <td width="10px">
+                                @can('admin.reinstallations.destroy')
+                                    <form action="{{route('admin.reinstallations.destroy', $reinstallation)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                                    </form>
+                                @endcan
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

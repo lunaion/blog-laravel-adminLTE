@@ -29,7 +29,11 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         {!! Form::label('ticket', 'Ticket número') !!}
-                        {!! Form::number('ticket', null, ['class' => 'form-control', 'placeholder' => 'Digite el número del ticket']) !!}
+                        {!! Form::number('ticket', null, [
+                                'class' => 'form-control', 
+                                'placeholder' => 'Digite el número del ticket',
+                                'readonly'
+                        ]) !!}
 
                         @error('ticket')
                             <small class="text-danger">{{ $message }}</small>
@@ -41,10 +45,9 @@
                     <div class="form-group">
                         {!! Form::label('document', 'Documento del usuario') !!}
                         {!! Form::number('document', $reinstallation?->user->document, [
-                            'class' => 'form-control',
-                            'placeholder' => 'Documento del usuario',
-                        
-                            'readonly',
+                                'class' => 'form-control',
+                                'placeholder' => 'Documento del usuario',
+                                'readonly',
                         ]) !!}
 
                         @error('document')
