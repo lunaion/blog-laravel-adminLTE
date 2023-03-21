@@ -38,7 +38,7 @@ class Reinstallation extends Model
 
     // Una reinstalación pertenece a una sede.
     public function site(){
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(Site::class);
     }
 
     // Relación muchos a muchos -> Una reinstalación tiene muchos Backups

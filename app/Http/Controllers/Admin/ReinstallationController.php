@@ -40,7 +40,7 @@ class ReinstallationController extends Controller
     {
 
         $request -> validate([
-            'ticket' => 'required',
+            'ticket' => 'required|unique:reinstallations',
             'area_id' => 'required',
             'position_id' => 'required',
             'city_id' => 'required',
@@ -81,7 +81,15 @@ class ReinstallationController extends Controller
 
     public function show(Reinstallation $reinstallation)
     {
-        return view('admin.reinstallations.show', compact('reinstallation')); 
+        $areas = Area::pluck('name', 'id');
+        $positions = Position::pluck('name', 'id');
+        $cities = City::pluck('name', 'id');
+        $sites = Site::pluck('name', 'id');
+        $backups = Backup::all();
+        $licenseActivations = LicenseActivation::all();
+        $generalValidations = GeneralValidation::all();
+
+        return view('admin.reinstallations.show', compact('reinstallation', 'areas', 'positions', 'cities', 'sites', 'backups', 'licenseActivations', 'generalValidations')); 
     }
 
     public function edit(Reinstallation $reinstallation)
@@ -99,18 +107,36 @@ class ReinstallationController extends Controller
 
     public function update(Request $request, Reinstallation $reinstallation)
     {
+
+        $request -> validate([
+            'ticket' => "required|unique:reinstallations,ticket,$reinstallation->id",
+            'area_id' => 'required',
+            'position_id' => 'required',
+            'city_id' => 'required',
+            'site_id' => 'required',
+            'location_details' => 'required',
+            'machines' => 'required',
+            'backups' => 'required',
+            'backups_observations' => 'required',
+            'validations_software' => 'required',
+            'validations_observations' => 'required',
+            'licenseActivations' => 'required',
+            'generalValidations' => 'required',
+            'general_observation' => 'required',
+        ]);
+
         $reinstallation->update($request->all());
 
         if ($request->backups) {
-            $reinstallation->backups()->attach($request->backups);
+            $reinstallation->backups()->sync($request->backups);
         }
 
         if ($request->licenseActivations) {
-            $reinstallation->licenseActivations()->attach($request->licenseActivations);
+            $reinstallation->licenseActivations()->sync($request->licenseActivations);
         }
 
         if ($request->generalValidations) {
-            $reinstallation->generalValidations()->attach($request->generalValidations);
+            $reinstallation->generalValidations()->sync($request->generalValidations);
         }
 
         return redirect()->route('admin.reinstallations.edit', $reinstallation)

@@ -75,7 +75,6 @@
                         {!! Form::email('email', $reinstallation?->user->email, [
                             'class' => 'form-control',
                             'placeholder' => 'Email del usuario',
-                        
                             'readonly',
                         ]) !!}
 

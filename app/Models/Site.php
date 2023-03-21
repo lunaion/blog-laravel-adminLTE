@@ -32,6 +32,6 @@ class Site extends Model
 
     // Relación de uno a muchos -> Una sede tiene muchas Reinstalaciones.
     public function reinstallations(){
-        return $this->hasMany(Site::class);
+        return $this->hasMany(Reinstallation::class);
     }
 }
