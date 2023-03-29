@@ -446,6 +446,18 @@ return [
                 ],
             ],
         ],
+        [
+            'text'    => 'Gestión de tickets',
+            'icon'    => 'fas fa-fw fa-ticket-alt',
+            'submenu' => [
+                [
+                    'text'       => 'Tickets vencidos',
+                    'route'        => 'admin.expiredTickets.index',
+                    'icon' => 'fas fa-fw fa-calendar-times',
+                    // 'can'        => 'admin.expiredTickets.index',
+                ],
+            ],
+        ],
     
         // ['header' => 'OPCIONES DE BLOG'],
     ],

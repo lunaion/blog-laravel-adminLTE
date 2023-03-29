@@ -20,4 +20,9 @@ class Area extends Model
         return $this->hasMany(Reinstallation::class);
     }
 
+    // Relación de uno a muchos -> Un área tiene muchos tickets vencidos.
+    public function expired_tickets(){
+        return $this->hasMany(ExpiredTicket::class);
+    }
+
 }

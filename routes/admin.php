@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BackupController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\ExpiredTicketController;
 use App\Http\Controllers\Admin\GeneralValidationController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\LicenseActivatioController;
@@ -45,6 +46,8 @@ Route::resource('generalValidations', GeneralValidationController::class)->excep
 Route::resource('reinstallations', ReinstallationController::class)->names('admin.reinstallations');
 
 Route::resource('backups', BackupController::class)->except('show')->names('admin.backups');
+
+Route::resource('expiredTickets', ExpiredTicketController::class)->names('admin.expiredTickets');
 
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 

@@ -17,6 +17,16 @@ use Illuminate\Support\Facades\Auth;
 
 class ReinstallationController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.reinstallations.index')->only('index');
+        $this->middleware('can:admin.reinstallations.show')->only('show');
+        $this->middleware('can:admin.reinstallations.create')->only('create', 'store');
+        $this->middleware('can:admin.reinstallations.edit')->only('edit', 'update');
+        $this->middleware('can:admin.reinstallations.destroy')->only('destroy');
+    }
+
     public function index()
     {
         return view('admin.reinstallations.index');

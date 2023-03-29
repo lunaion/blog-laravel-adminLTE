@@ -34,4 +34,9 @@ class Site extends Model
     public function reinstallations(){
         return $this->hasMany(Reinstallation::class);
     }
+
+    // Relación de uno a muchos -> Un usuario tiene muchos tickets vencidos.
+    public function expired_tickets(){
+        return $this->hasMany(ExpiredTicket::class);
+    }
 }

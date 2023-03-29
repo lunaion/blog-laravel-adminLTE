@@ -85,4 +85,9 @@ class User extends Authenticatable
         return $this->hasMany(Reinstallation::class);
     }
 
+    // Relación de uno a muchos -> Un usuario tiene muchos tickets vencidos.
+    public function expiredTickets(){
+        return $this->hasMany(ExpiredTicket::class);
+    }
+
 }
