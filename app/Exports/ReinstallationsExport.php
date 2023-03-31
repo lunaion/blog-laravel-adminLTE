@@ -2,17 +2,17 @@
 
 namespace App\Exports;
 
-use App\Models\Turn;
+use App\Models\Reinstallation;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class TurnsExport implements FromView, ShouldAutoSize
+class ReinstallationsExport implements FromView, ShouldAutoSize
 {
     public function view() : View
     {
-        return view('admin.turns.partials.export', [
-            'turns' => Turn::all()
+        return view('admin.reinstallations.partials.export', [
+            'reinstallations' => Reinstallation::all()
         ]);
     }
 }

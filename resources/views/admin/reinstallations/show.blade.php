@@ -9,6 +9,7 @@
 @section('content')
 
     <h2>Detalles de la reinstalación con ticket #{{$reinstallation?->ticket}}</h2>
+    <a class="btn btn-danger btn-sm float-right" href="#">Generar PDF</a>
 
     <p>Desde aquí podrás ver los detalles de una reinstalación en especifico.</p>
 

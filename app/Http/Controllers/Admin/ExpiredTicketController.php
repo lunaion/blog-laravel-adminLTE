@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\expiredTicketsExport;
 use App\Http\Controllers\Controller;
 use App\Models\Area;
 use App\Models\ExpiredTicket;
@@ -9,6 +10,7 @@ use App\Models\Site;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ExpiredTicketController extends Controller
 {
@@ -57,7 +59,17 @@ class ExpiredTicketController extends Controller
 
     public function show(ExpiredTicket $expiredTicket)
     {
-        return view('admin.expiredTickets.show');
+
+        $area_solucion = [
+            'Sí' => 'Sí',
+            'No' => 'No',
+        ];
+
+        $users = User::pluck('name', 'id');
+        $sites = Site::pluck('name', 'id');
+        $areas = Area::pluck('name', 'id');
+
+        return view('admin.expiredTickets.show', compact('expiredTicket', 'area_solucion', 'users', 'sites', 'areas'));
     }
 
     public function edit(ExpiredTicket $expiredTicket)
@@ -103,5 +115,9 @@ class ExpiredTicketController extends Controller
 
         return redirect()->route('admin.expiredTickets.index', $expiredTicket)
                             ->with('info', 'Se eliminó con éxito el ticket vencido');
+    }
+
+    public function export(){
+        return Excel::download(new expiredTicketsExport, 'Registro de tickets vencidos.xlsx');
     }
 }

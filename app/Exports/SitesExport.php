@@ -9,9 +9,6 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
 class SitesExport implements FromView, ShouldAutoSize
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
     public function view() : View
     {
         return view('admin.sites.partials.export', [

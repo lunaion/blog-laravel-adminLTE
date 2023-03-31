@@ -134,6 +134,17 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.reinstallations.destroy', 
                             'description' => 'Eliminar reinstalaciones'])->syncRoles([$role1]);
 
+        Permission::create(['name' => 'admin.expiredTickets.index', 
+                            'description' => 'Ver listado de tickets vencidos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.expiredTickets.create', 
+                            'description' => 'Agregar ticket vencido'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.expiredTickets.edit', 
+                            'description' => 'Editar ticket vencido'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.expiredTickets.show', 
+                            'description' => 'Ver detalles de ticket vencido'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.expiredTickets.destroy', 
+                            'description' => 'Eliminar ticket vencido'])->syncRoles([$role1]);
+
         Permission::create(['name' => 'admin.tags.index', 
                             'description' => 'Ver listado de etiquetas'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'admin.tags.create', 
@@ -159,5 +170,9 @@ class RoleSeeder extends Seeder
                             'description' => 'Exportar lista de sedes'])->syncRoles([$role1]);
         Permission::create(['name' => 'admin.turns.export', 
                             'description' => 'Exportar lista de ingreso a turnos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.reinstallations.export', 
+                            'description' => 'Exportar lista de reinstalaciones'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.expiredTickets.export', 
+                            'description' => 'Exportar lista tickets vencidos'])->syncRoles([$role1]);
     }
 }

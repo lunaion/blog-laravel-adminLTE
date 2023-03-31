@@ -1,12 +1,12 @@
 
-<h1>Registro de ingreso a turnos</h1>
+<h1>Registro de Reinstalaciones</h1>
 
 <table class="table table-striped">
 
     <thead>
         <tr>
-            <th>Nombre de usuario</th>
-            <th>Documento</th>
+            <th>Ticket #</th>
+            <{{-- th>Documento</th>
             <th>Usuario de red</th>
             <th>Ciudad</th>
             <th>Sede</th>
@@ -14,23 +14,22 @@
             <th>Estado</th>
             <th>Fecha</th>
             <th>Hora</th>
-            <th>Fecha y hora del registro</th>
+            <th>Fecha y hora del registro</th> --}}
         </tr>
     </thead>
 
     <tbody>
-        @foreach ($turns as $turn)
+        @foreach ($reinstallations as $reinstallation)
             <tr>
-                <td>{{$turn?->user?->name}}</td>
-                <td>{{$turn?->user?->document}}</td>
-                <td>{{$turn?->user?->username}}</td>
+                <td>{{$reinstallation?->ticket}}</td>
+                {{-- <td>{{$turn->user->document}}</td>
+                <td>{{$turn->user->username}}</td>
                 <td>{{$turn?->city?->name }}</td>
-                <td>{{$turn?->site?->name }}</td>
                 <td>{{$turn->local_ip}}</td>
                 <td>{{$turn->status}}</td>
                 <td>{{$turn->date}}</td>
                 <td>{{$turn->time}}</td>
-                <td>{{$turn->created_at}}</td>
+                <td>{{$turn->created_at}}</td> --}}
             </tr>                     
         @endforeach
     </tbody>

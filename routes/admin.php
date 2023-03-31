@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('', [HomeController::class, 'index'])->middleware('can:admin.home')->name('admin.home');
 
+Route::get('/users/export', [UserController::class, 'export'])->name('admin.users.export');
 Route::resource('users', UserController::class)->only(['index', 'edit', 'update'])->names('admin.users');
 
 Route::resource('roles', RoleController::class)->except('show')->names('admin.roles');
@@ -31,8 +32,10 @@ Route::resource('countries', CountryController::class)->except('show')->names('a
 
 Route::resource('cities', CityController::class)->except('show')->names('admin.cities');
 
+Route::get('/sites/export', [SiteController::class, 'export'])->name('admin.sites.export');
 Route::resource('sites', SiteController::class)->except('show')->names('admin.sites');
 
+Route::get('/turns/export', [TurnController::class, 'export'])->name('admin.turns.export');
 Route::resource('turns', TurnController::class)->except('show', 'edit', 'update', 'destroy')->names('admin.turns');
 
 Route::resource('areas', AreaController::class)->except('show')->names('admin.areas');
@@ -43,17 +46,17 @@ Route::resource('licenseActivations', LicenseActivatioController::class)->except
 
 Route::resource('generalValidations', GeneralValidationController::class)->except('show')->names('admin.generalValidations');
 
+Route::get('/reinstallations/export', [ReinstallationController::class, 'export'])->name('admin.reinstallations.export');
 Route::resource('reinstallations', ReinstallationController::class)->names('admin.reinstallations');
 
 Route::resource('backups', BackupController::class)->except('show')->names('admin.backups');
 
+Route::get('/expiredTickets/export', [ExpiredTicketController::class, 'export'])->name('admin.expiredTickets.export');
 Route::resource('expiredTickets', ExpiredTicketController::class)->names('admin.expiredTickets');
 
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 
 Route::resource('posts', PostController::class)->except('show')->names('admin.posts');
 
-// Exportación de información en formato excel.
-Route::get('/sites/export', [SiteController::class, 'export'])->name('admin.sites.export');
-Route::get('/users/export', [UserController::class, 'export'])->name('admin.users.export');
-Route::get('/turns/export', [TurnController::class, 'export'])->name('admin.turns.export');
+
+

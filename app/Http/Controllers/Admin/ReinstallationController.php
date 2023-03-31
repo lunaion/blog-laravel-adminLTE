@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\ReinstallationsExport;
 use App\Http\Controllers\Controller;
 use App\Models\Area;
 use App\Models\Backup;
@@ -14,6 +15,7 @@ use App\Models\Site;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReinstallationController extends Controller
 {
@@ -160,5 +162,9 @@ class ReinstallationController extends Controller
 
         return redirect()->route('admin.reinstallations.index', $reinstallation)
                         ->with('info', 'La reinstalación se eliminó con éxito');
+    }
+
+    public function export(){
+        return Excel::download(new ReinstallationsExport, 'Registro de reinstalaciones.xlsx');
     }
 }
