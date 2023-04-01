@@ -454,7 +454,7 @@ return [
                     'text'       => 'Tickets vencidos',
                     'route'        => 'admin.expiredTickets.index',
                     'icon' => 'fas fa-fw fa-calendar-times',
-                    // 'can'        => 'admin.expiredTickets.index',
+                    'can'        => 'admin.expiredTickets.index',
                 ],
             ],
         ],

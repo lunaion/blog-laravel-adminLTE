@@ -6,15 +6,17 @@
     <thead>
         <tr>
             <th>Ticket #</th>
-            <{{-- th>Documento</th>
-            <th>Usuario de red</th>
+            <th>Actividad realizada por</th>
+            <th>Usuario</th>
+            <th>Documento</th>
+            <th>Correo</th>
+            <th>Área</th>
+            <th>Cargo</th>
             <th>Ciudad</th>
             <th>Sede</th>
-            <th>IP</th>
-            <th>Estado</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Fecha y hora del registro</th> --}}
+            <th>Ubicación en sede</th>
+            <th>Cantidad de máquinas</th>
+            <th>Fecha y hora del registro</th>
         </tr>
     </thead>
 
@@ -22,14 +24,17 @@
         @foreach ($reinstallations as $reinstallation)
             <tr>
                 <td>{{$reinstallation?->ticket}}</td>
-                {{-- <td>{{$turn->user->document}}</td>
-                <td>{{$turn->user->username}}</td>
-                <td>{{$turn?->city?->name }}</td>
-                <td>{{$turn->local_ip}}</td>
-                <td>{{$turn->status}}</td>
-                <td>{{$turn->date}}</td>
-                <td>{{$turn->time}}</td>
-                <td>{{$turn->created_at}}</td> --}}
+                <td>{{$reinstallation?->tecnico?->name}}</td>
+                <td>{{$reinstallation?->user?->name}}</td>
+                <td>{{$reinstallation?->user?->document}}</td>
+                <td>{{$reinstallation?->user?->email}}</td>
+                <td>{{$reinstallation?->area?->name}}</td>
+                <td>{{$reinstallation?->position?->name}}</td>
+                <td>{{$reinstallation?->city?->name}}</td>
+                <td>{{$reinstallation?->site?->name}}</td>
+                <td>{{$reinstallation?->location_details}}</td>
+                <td>{{$reinstallation?->machines}}</td>
+                <td>{{$reinstallation?->created_at}}</td>
             </tr>                     
         @endforeach
     </tbody>

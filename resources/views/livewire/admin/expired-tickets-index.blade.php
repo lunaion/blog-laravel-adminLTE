@@ -30,18 +30,24 @@
                             <td>{{ $expiredTicket->area?->name }}</td>
                             <td>{{ $expiredTicket->tiempo_vencimiento }}</td>
                             <td width="10px">
+                                @can('admin.expiredTickets.show')
                                     <a class="btn btn-success btn-sm" href="{{route('admin.expiredTickets.show', $expiredTicket)}}">Ver</a>
+                                @endcan
                             </td>
                             <td width="10px">
+                                @can('admin.expiredTickets.edit')
                                     <a class="btn btn-warning btn-sm" href="{{route('admin.expiredTickets.edit', $expiredTicket)}}">Editar</a>
+                                @endcan
                             </td>
                             <td width="10px">
+                                @can('admin.expiredTickets.destroy')
                                     <form action="{{route('admin.expiredTickets.destroy', $expiredTicket)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
 
                                         <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
                                     </form>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach
