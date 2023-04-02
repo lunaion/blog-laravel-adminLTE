@@ -10,8 +10,6 @@
 
     <h2>Detalles del ticket vencido #{{$expiredTicket?->ticket}}</h2>
 
-    <a class="btn btn-danger btn-sm float-right" href="#">Generar PDF</a>
-
     <p>Desde aquí podrás ver en detalle la información de un ticket vencido en especifico.</p>
 
     <div class="card">

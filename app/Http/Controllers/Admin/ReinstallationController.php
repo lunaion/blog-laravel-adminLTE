@@ -17,6 +17,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
+use function GuzzleHttp\Promise\all;
+
 class ReinstallationController extends Controller
 {
 
@@ -164,7 +168,22 @@ class ReinstallationController extends Controller
                         ->with('info', 'La reinstalación se eliminó con éxito');
     }
 
-    public function export(){
+    public function export()
+    {
         return Excel::download(new ReinstallationsExport, 'Registro de reinstalaciones.xlsx');
+    }
+
+    public function report($id)
+    {
+
+        $reinstallation = Reinstallation::find($id);
+
+        if (!$reinstallation) {
+            return redirect()->back()->with('error', 'Reinstalación no encontrada.');
+        }
+
+        $pdf = Pdf::loadView('admin.reinstallations.partials.report', compact('reinstallation'));
+        return $pdf->stream('Reporte_de_reinstalacion_' . $reinstallation->ticket . '.pdf');
+         
     }
 }

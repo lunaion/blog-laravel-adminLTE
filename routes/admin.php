@@ -47,6 +47,7 @@ Route::resource('licenseActivations', LicenseActivatioController::class)->except
 Route::resource('generalValidations', GeneralValidationController::class)->except('show')->names('admin.generalValidations');
 
 Route::get('/reinstallations/export', [ReinstallationController::class, 'export'])->name('admin.reinstallations.export');
+Route::get('/reinstallations/{id}/report', [ReinstallationController::class, 'report'])->name('admin.reinstallations.report');
 Route::resource('reinstallations', ReinstallationController::class)->names('admin.reinstallations');
 
 Route::resource('backups', BackupController::class)->except('show')->names('admin.backups');
